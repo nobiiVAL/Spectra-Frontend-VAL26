@@ -1,5 +1,5 @@
-<div class="fixed top-0 left-0 translate-x-[-50vw] vw-1675 vh-93.27">
-  <svg id="Bar_Components" data-name="Bar Components" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1675" height="93.27" viewBox="0 0 1675 93.27">
+<div class="fixed top-0 left-0 translate-x-[-50vw] translate-y-[-1vh]" [class]="'fixed top-0 left-0 translate-x-[-50vw] translate-y-[-1vh] ' + (dataModel.sponsorInfo().enabled ? 'vw-1675' : 'vw-1920') + ' vh-93.27'">
+  <svg id="Bar_Components" data-name="Bar Components" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-full h-full" [attr.viewBox]="dataModel.sponsorInfo().enabled ? '0 0 1675 93.27' : '0 0 1920 93.27'" preserveAspectRatio="none">
     <defs>
       <linearGradient id="linear-gradient" x1="0.014" y1="0.487" x2="0.413" y2="0.479" gradientUnits="objectBoundingBox">
         <stop offset="0" stop-color="#0f1923" stop-opacity="0"/>
@@ -10,15 +10,15 @@
         <stop offset="1" stop-color="#0f1923" stop-opacity="0"/>
       </linearGradient>
       <linearGradient id="linear-gradient-3" x1="0.796" y1="0.448" x2="0" y2="0.476" gradientUnits="objectBoundingBox">
-        <stop offset="0" stop-color="#fd4756" stop-opacity="0"/>
-        <stop offset="0.386" stop-color="#fd4756" stop-opacity="0.902"/>
-        <stop offset="0.558" stop-color="#fd4756" stop-opacity="0.902"/>
+        <stop offset="0" stop-color="#101823" stop-opacity="0"/>
+        <stop offset="0.386" [attr.stop-color]="dataModel.teams()[1].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'" stop-opacity="0.902"/>
+        <stop offset="0.558" [attr.stop-color]="dataModel.teams()[1].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'" stop-opacity="0.902"/>
         <stop offset="1" stop-color="#101823"/>
       </linearGradient>
       <linearGradient id="linear-gradient-4" y1="0.473" x2="1" y2="0.465" gradientUnits="objectBoundingBox">
         <stop offset="0" stop-color="#101823" stop-opacity="0"/>
-        <stop offset="0.521" stop-color="#21fec5" stop-opacity="0.902"/>
-        <stop offset="0.688" stop-color="#21fec5" stop-opacity="0.902"/>
+        <stop offset="0.521" [attr.stop-color]="dataModel.teams()[0].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'" stop-opacity="0.902"/>
+        <stop offset="0.688" [attr.stop-color]="dataModel.teams()[0].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'" stop-opacity="0.902"/>
         <stop offset="1" stop-color="#101823"/>
       </linearGradient>
       <linearGradient id="linear-gradient-5" y1="0.5" x2="1.013" y2="0.5" gradientUnits="objectBoundingBox">
@@ -26,7 +26,7 @@
         <stop offset="1" stop-color="#fff" stop-opacity="0.4"/>
       </linearGradient>
       <linearGradient id="linear-gradient-6" x1="1" x2="-0.013" xlink:href="#linear-gradient-5"/>
-      <linearGradient id="linear-gradient-7" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <linearGradient id="linear-gradient-7" y1="0.5" [attr.x2]="dataModel.sponsorInfo().enabled ? '1' : '0.873'" y2="0.5" gradientUnits="objectBoundingBox">
         <stop offset="0" stop-color="#292929" stop-opacity="0.6"/>
         <stop offset="0.316" stop-color="#292929" stop-opacity="0.6"/>
         <stop offset="0.381" stop-color="#1b222d" stop-opacity="0.878"/>
@@ -62,12 +62,12 @@
         <stop offset="1" stop-color="#6e6e6e"/>
       </linearGradient>
       <linearGradient id="linear-gradient-12" y1="0.5" x2="0.986" y2="0.5" gradientUnits="objectBoundingBox">
-        <stop offset="0" stop-color="#21fec5" stop-opacity="0"/>
-        <stop offset="1" stop-color="#21fec5"/>
+        <stop offset="0" [attr.stop-color]="dataModel.teams()[0].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'" stop-opacity="0"/>
+        <stop offset="1" [attr.stop-color]="dataModel.teams()[0].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'"/>
       </linearGradient>
       <linearGradient id="linear-gradient-13" x1="1" y1="0.5" x2="0.014" y2="0.5" gradientUnits="objectBoundingBox">
-        <stop offset="0" stop-color="#fd4756" stop-opacity="0"/>
-        <stop offset="1" stop-color="#fd4756"/>
+        <stop offset="0" [attr.stop-color]="dataModel.teams()[1].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'" stop-opacity="0"/>
+        <stop offset="1" [attr.stop-color]="dataModel.teams()[1].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'"/>
       </linearGradient>
     </defs>
     <path id="Left_Team_Gradient" data-name="Left Team Gradient" d="M2436.135-322.1c2.6,0,8.215-10.9,13.665-10.9s54.21.019,59.544.019,10.28,10.865,13.216,10.9,20.39,0,20.39,0V-393.76l-167.05.478v71.142S2433.531-322.1,2436.135-322.1Z" transform="translate(-1652.95 393.76)" fill="url(#linear-gradient)"/>
@@ -76,16 +76,16 @@
     <path id="Left_Team_Color_DEF_" data-name="Left Team Color (DEF)" d="M2436.135-322.1c2.6,0,8.215-10.9,13.665-10.9s54.21.019,59.544.019,10.28,10.865,13.216,10.9,20.39,0,20.39,0V-393.76l-167.05.478v71.142S2433.531-322.1,2436.135-322.1Z" transform="translate(-1652.95 393.76)" fill="url(#linear-gradient-4)"/>
     <g id="Line_Accent" data-name="Line Accent" transform="translate(749.407 0.37)">
       <g id="Line_Accent_Left" data-name="Line Accent Left" transform="translate(0 0)">
-        <path id="Union_1" data-name="Union 1" d="M111.729,56.291l-3.457,3.31,3.457-3.31L87.2,31.585,62.335,56.406l3.14,3.164-3.14-3.164-3.164,3.158,3.164-3.158L37.043,30.925,0,67.525l37.043-36.6L6.843.5l30.2,30.425L62.033,6.235,55.843,0l6.19,6.235L68.343,0l-6.31,6.235L87.2,31.585,113.369,5.464,107.843,0l5.527,5.464L118.843,0l-5.474,5.464,25.307,25.021,1.448-1.387-1.448,1.387,1.614,1.6-1.614-1.6L111.729,56.291,124.843,69.5Zm-49.394.115L87.2,31.585,62.033,6.235,37.043,30.925Zm49.394-.115,26.947-25.807L113.369,5.464,87.2,31.585Z" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+        <path id="Union_1" data-name="Union 1" d="M111.729,56.291l-3.457,3.31,3.457-3.31L87.2,31.585,62.335,56.406l3.14,3.164-3.14-3.164-3.164,3.158,3.164-3.158L37.043,30.925,0,67.525l37.043-36.6L6.843.5l30.2,30.425L62.033,6.235,55.843,0l6.19,6.235L68.343,0l-6.31,6.235L87.2,31.585,113.369,5.464,107.843,0l5.527,5.464L118.843,0l-5.474,5.464,25.307,25.021,1.448-1.387-1.448,1.387,1.614,1.6-1.614-1.6L111.729,56.291,124.843,69.5Zm-49.394.115L87.2,31.585,62.033,6.235,37.043,30.925Zm49.394-.115,26.947-25.807L113.369,5.464,87.2,31.585Z" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
         <rect id="Rectangle_8" data-name="Rectangle 8" width="111.5" height="1" transform="translate(24.093 55.75)" fill="url(#linear-gradient-5)"/>
       </g>
       <g id="Line_Accent_Right" data-name="Line Accent Right" transform="translate(280.894)">
-        <path id="Union_2" data-name="Union 2" d="M27.362,56.353,1.045,31.365,0,32.448l1.045-1.083-.754-.716.754.716L25.9,5.6,20.309,0l5.6,5.6,5.4-5.6L25.9,5.6l26,26.028L77.1,6.251,70.809,0,77.1,6.251,83.309,0,77.1,6.251l24.953,24.781L132.309.5,102.056,31.031,138.8,67.525,102.056,31.031l-25.268,25.5,3.067,3.07-3.067-3.07L73.848,59.5l2.94-2.967-24.88-24.9L27.362,56.353l3.65,3.465-3.65-3.465L14.309,69.5Zm49.426.179,25.268-25.5L77.1,6.251l-25.2,25.378Zm-49.426-.179L51.908,31.629,25.9,5.6,1.045,31.365Z" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+        <path id="Union_2" data-name="Union 2" d="M27.362,56.353,1.045,31.365,0,32.448l1.045-1.083-.754-.716.754.716L25.9,5.6,20.309,0l5.6,5.6,5.4-5.6L25.9,5.6l26,26.028L77.1,6.251,70.809,0,77.1,6.251,83.309,0,77.1,6.251l24.953,24.781L132.309.5,102.056,31.031,138.8,67.525,102.056,31.031l-25.268,25.5,3.067,3.07-3.067-3.07L73.848,59.5l2.94-2.967-24.88-24.9L27.362,56.353l3.65,3.465-3.65-3.465L14.309,69.5Zm49.426.179,25.268-25.5L77.1,6.251l-25.2,25.378Zm-49.426-.179L51.908,31.629,25.9,5.6,1.045,31.365Z" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
         <rect id="Rectangle_9" data-name="Rectangle 9" width="111.5" height="1" transform="translate(4.699 55.75)" fill="url(#linear-gradient-6)"/>
       </g>
     </g>
-    <path id="Bar_Main" data-name="Bar Main" d="M931-369.46l623.99.013,24.034,23.1v6.993l17.048,17.12s115.339.087,118.088.037,8.193-10.922,13.779-10.917,53.838-.013,59.35,0,10.345,10.913,13.279,10.917,159.231-.037,181.427-.037c2.58.02,6.827-11.042,12.009-11.12s54.025.039,60.282,0,10.968,11.1,14.352,11.12h116.353l17.976-18.24v-5.942L2226-369.333l380-.1v-24.3H931Z" transform="translate(-931 393.853)" fill="url(#linear-gradient-7)"/>
-    <path id="Timer_Main" data-name="Timer Main" d="M2602.611-393.186l40.966,39.535v10.282l31.354,30.933,38.746.008,6.455,6.458,10.194,0,6.013,5.936,5.876-5.936h10.206l6.459-6.458,38.743,0,31.2-31.184v-9.7l40.28-39.879-62.8-.12,0,72h-140v-72Z" transform="translate(-1776.311 393.307)" fill="url(#linear-gradient-8)"/>
+    <path id="Bar_Main" data-name="Bar Main" [attr.d]="dataModel.sponsorInfo().enabled ? 'M931-369.46l623.99.013,24.034,23.1v6.993l17.048,17.12s115.339.087,118.088.037,8.193-10.922,13.779-10.917,53.838-.013,59.35,0,10.345,10.913,13.279,10.917,159.231-.037,181.427-.037c2.58.02,6.827-11.042,12.009-11.12s54.025.039,60.282,0,10.968,11.1,14.352,11.12h116.353l17.976-18.24v-5.942L2226-369.333l380-.1v-24.3H931Z' : 'M931-369.46l623.99.013,24.034,23.1v6.993l17.048,17.12s115.339.087,118.088.037,8.193-10.922,13.779-10.917,53.838-.013,59.35,0,10.345,10.913,13.279,10.917,159.231-.037,181.427-.037c2.58.02,6.827-11.042,12.009-11.12s54.025.039,60.282,0,10.968,11.1,14.352,11.12h116.353l17.976-18.24v-5.942L2226-369.333l625-.1v-24.3H931Z'" transform="translate(-931 393.853)" fill="url(#linear-gradient-7)"/>
+    <path id="Timer_Main" data-name="Timer Main" d="M2602.611-393.186l40.966,39.535v10.282l31.354,30.933,38.746.008,6.455,6.458,10.194,0,6.013,5.936,5.876-5.936h10.206l6.459-6.458,38.743,0,31.2-31.184v-9.7l40.28-39.879-64.8-.12v71h-136v-71Z" transform="translate(-1776.311 393.307)" fill="url(#linear-gradient-8)"/>
     <g id="Timer_Accent" data-name="Timer Accent" transform="translate(859.898 9.12)">
       <g id="Timer_Accent_Left" data-name="Timer Accent Left" transform="translate(0 0)">
         <rect id="Rectangle_2" data-name="Rectangle 2" width="109" height="0.5" transform="translate(0.354 0) rotate(45)" fill="url(#linear-gradient-9)"/>
@@ -110,4 +110,40 @@
     <path id="Left_Team_Bar_DEF_" data-name="Left Team Bar (DEF)" d="M2383.9-257s-3.614,4.061-4.961,4.054-117.874-.072-117.874-.072V-257Z" transform="translate(-1596.033 325.12)" fill="url(#linear-gradient-12)"/>
     <path id="Right_Team_Bar_ATK_" data-name="Right Team Bar (ATK)" d="M2261.331-257s3.481,4.061,4.828,4.054,117.875-.072,117.875-.072V-257Z" transform="translate(-1129.165 325.12)" fill="url(#linear-gradient-13)"/>
   </svg>
+  
+  <!-- Team 0 (Left) Components -->
+  <div class="absolute top-[1vh] left-[34.3vw]">
+    <img [src]="dataModel.teams()[0].teamUrl" class="w-[4vh] h-[4vh] max-w-[4vh] max-h-[4vh] object-contain"/>
+  </div>
+  
+  <div class="absolute left-[37.5vw]" [class]="dataModel.seedingInfo().left ? 'top-[0.8vh]' : 'top-[1.6vh]'">
+    <div class="flex flex-col justify-center items-center">
+      <span class="text-[3vh] font-tungsten leading-none text-white">{{ dataModel.teams()[0].teamTricode }}</span>
+      @if (dataModel.seedingInfo().left) {
+        <span class="text-[1.2vh] font-dinnext-medium leading-none text-[#A1A9AC]">{{ dataModel.seedingInfo().left.toUpperCase() }}</span>
+      }
+    </div>
+  </div>
+  
+  <div class="absolute top-[0.8vh] left-[43vw] -translate-x-1/2">
+    <span class="text-[4.3vh] font-foundry-extrabold text-center leading-none text-white">{{ dataModel.teams()[0].roundsWon }}</span>
+  </div>
+  
+  <!-- Team 1 (Right) Components -->
+  <div class="absolute top-[0.8vh] translate-x-1/2" [class]="dataModel.sponsorInfo().enabled ? 'right-[30.2vw]' : 'right-[43vw]'">
+    <span class="text-[4.3vh] font-foundry-extrabold text-center leading-none text-white">{{ dataModel.teams()[1].roundsWon }}</span>
+  </div>
+  
+  <div class="absolute" [class]="(dataModel.sponsorInfo().enabled ? 'right-[25vw]' : 'right-[38vw]') + ' ' + (dataModel.seedingInfo().right ? 'top-[0.8vh]' : 'top-[1.6vh]')">
+    <div class="flex flex-col justify-center items-center">
+      <span class="text-[3vh] font-tungsten leading-none text-white">{{ dataModel.teams()[1].teamTricode }}</span>
+      @if (dataModel.seedingInfo().right) {
+        <span class="text-[1.2vh] font-dinnext-medium leading-none text-[#A1A9AC]">{{ dataModel.seedingInfo().right.toUpperCase() }}</span>
+      }
+    </div>
+  </div>
+  
+  <div class="absolute top-[1vh]" [class]="dataModel.sponsorInfo().enabled ? 'right-[21.7vw]' : 'right-[34.5vw]'">
+    <img [src]="dataModel.teams()[1].teamUrl" class="w-[4vh] h-[4vh] max-w-[4vh] max-h-[4vh] object-contain"/>
+  </div>
 </div>

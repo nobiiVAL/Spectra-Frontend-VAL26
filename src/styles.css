@@ -29,11 +29,11 @@
 }
 @font-face {
   font-family: "Replica";
-  src: url("/assets/fonts/Replica-Bold.ttf") format("truetype"),
+  src: url("/assets/fonts/Replica/Replica-Bold.ttf") format("truetype"),
 }
 @font-face {
   font-family: "Tungsten";
-  src: url("/assets/fonts/Tungsten-Bold.ttf") format("truetype"),
+  src: url("/assets/fonts/Tungsten/Tungsten-Bold.ttf") format("truetype"),
 }
 
 @import "tailwindcss";
@@ -49,11 +49,11 @@
   --color-background: #0f1923cc;
   --color-credits-negative: #ff4557;
 
-  --color-defender-primary: #25ac79;
+  --color-defender-primary: #21FEC5;
   --color-defender-secondary: #61eab6;
   --color-defender-shield: #61eab6;
 
-  --color-attacker-primary: #b82e3c;
+  --color-attacker-primary: #FD4756;
   --color-attacker-secondary: #ff4557;
   --color-attacker-shield: #ff838f;
 }

@@ -1,6 +1,6 @@
 @if (dataModel.sponsorInfo().enabled) {
   <div
-    class="vw-240 vh-88 relative bg-no-repeat bg-center bg-contain"
+    class="absolute top-0 -right-60 vw-245 vh-88 bg-no-repeat bg-left bg-cover"
     [style.background-image]="'url(assets/topscore/sponsorBox.svg)'"
   >
     @for (sponsor of dataModel.sponsorInfo().sponsors; track $index) {

@@ -1,24 +1,24 @@
 @if (dataModel.seriesInfo().mapInfo.length > 0) {
   <div
-    class="font-montserrat vh-24 vw-600 flex flex-row overflow-hidden rounded-b-lg text-[15px] font-extrabold text-white uppercase"
+    class="font-dinnext-medium vh-24 vw-600 flex flex-row overflow-hidden rounded-b-lg text-[0.78vw] text-white uppercase"
   >
     @for (mapInfo of dataModel.seriesInfo().mapInfo; track $index) {
-      <div class="pill-background flex w-full flex-row items-center justify-center text-center">
+      <div class="flex w-full flex-row items-center justify-center text-center">
         @switch (mapInfo.type) {
           @case ("past") {
             <p>{{ mapInfo.map }}</p>
-            <img [src]="mapInfo.left.logo" class="max-h-5 max-w-5 px-1 py-0.5 align-middle" />
+            <img [src]="mapInfo.left.logo" class="max-h-4 max-w-4 px-1.5 py-0.5 align-middle ml-1" />
             <p>{{ mapInfo.left.score }} - {{ mapInfo.right.score }}</p>
-            <img [src]="mapInfo.right.logo" class="max-h-5 max-w-5 px-1 py-0.5 align-middle" />
+            <img [src]="mapInfo.right.logo" class="max-h-4 max-w-4 px-1.5 py-0.5 align-middle ml-1" />
           }
           @case ("present") {
             {{ TranslateKeys.Mapinfo_Live | translate: { map: dataModel.match().map } }}
-            <img [src]="mapInfo.logo" class="max-h-5 max-w-5 px-1 py-0.5 align-middle" />
+            <img [src]="mapInfo.logo" class="min-w-4 min-h-4 max-h-4 max-w-4 px-1.5 py-0.5 align-middle ml-1" />
           }
           @case ("future") {
             @if (mapInfo.logo !== "") {
               {{ TranslateKeys.Mapinfo_Next | translate: { map: mapInfo.map } }}
-              <img [src]="mapInfo.logo" class="max-h-5 max-w-5 px-1 py-0.5 align-middle" />
+              <img [src]="mapInfo.logo" class="max-h-4 max-w-4 px-1.5 py-0.5 align-middle ml-1" />
             } @else {
               {{ TranslateKeys.Mapinfo_Decider | translate: { map: mapInfo.map } }}
             }

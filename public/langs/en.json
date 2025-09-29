@@ -7,7 +7,7 @@
   "endround.attacker": "ATTACKER",
   "endround.defender": "DEFENDER",
   "endround.round": "ROUND {{rounds}}",
-  "mapinfo.live": "Live: {{map}}",
+  "mapinfo.live": "Current: {{map}}",
   "mapinfo.decider": "Decider: {{map}}",
   "mapinfo.next": "Next: {{map}}",
   "topinfo.watermark": "Powered by Spectra",

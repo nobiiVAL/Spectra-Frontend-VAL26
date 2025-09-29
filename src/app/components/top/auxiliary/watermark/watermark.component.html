@@ -1,10 +1,11 @@
 @if (dataModel.watermarkInfo().spectraWatermark || dataModel.watermarkInfo().customTextEnabled) {
   <div
-    class=" vw-260 vh-24 font-dinnext-medium tracking-[0.04em] flex flex-row items-center justify-center overflow-hidden rounded-b-lg text-center text-[15px] text-white uppercase"
+    class="vh-24 font-dinnext-medium tracking-[0.04em] flex flex-row items-center justify-center overflow-hidden rounded-b-lg text-center text-[0.78vw] text-white uppercase"
+    [class]="dataModel.sponsorInfo().enabled ? 'vw-270' : 'vw-500'"
   >
     @if (dataModel.watermarkInfo().spectraWatermark) {
       <img src="assets/misc/icon.webp" class="max-h-5 max-w-5 px-0.5 py-0.5 align-middle" />
-      <div class="relative flex h-full w-8/10 justify-center">
+      <div class="relative flex h-full justify-center" [class]="dataModel.watermarkInfo().customTextEnabled ? 'w-8/10' : 'w-7/10'">
           <p class="absolute">
             {{ TranslateKeys.Watermark_Text | translate }}
           </p>
