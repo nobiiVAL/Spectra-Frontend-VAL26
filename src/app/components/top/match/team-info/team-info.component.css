@@ -1,0 +1,7 @@
+.spike-side {
+  width: 0px;
+  height: 0px;
+  border-top: 5px solid transparent;
+  border-right: 10px solid white;
+  border-bottom: 5px solid transparent;
+}

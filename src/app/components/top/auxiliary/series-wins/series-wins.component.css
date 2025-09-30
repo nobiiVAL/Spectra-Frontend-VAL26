@@ -1,16 +1,14 @@
 .mapwin-pip {
   position: relative;
-  width: 14px;
-  height: 7px;
-  border-radius: 3px;
-  border: 1.75px solid;
-  border-color: #ffffffaa;
-  &-full {
-    @extend .mapwin-pip;
-    background-color: #ffffff;
-  }
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  rotate: 45deg;
+  border-color: #cacaca;
+  background-color: #1a1a1a;
 }
 
 .full {
   background-color: #ffffff;
+  border-color: #ffffff;
 }

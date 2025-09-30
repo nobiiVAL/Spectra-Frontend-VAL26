@@ -28,7 +28,9 @@ export class SpikePlantedComponent {
   });
 
   blinkTimerRef?: NodeJS.Timeout;
+  pulseTimerRef?: NodeJS.Timeout;
   blinkState = true;
+  pulseState = false;
   isBlinking = false;
   blinkStartTime = 0;
   blinkLastTime = 0;
@@ -42,13 +44,19 @@ export class SpikePlantedComponent {
 
   protected endBlink() {
     clearInterval(this.blinkTimerRef);
+    clearTimeout(this.pulseTimerRef);
     this.blinkTimerRef = undefined;
+    this.pulseTimerRef = undefined;
     this.blinkState = true;
+    this.pulseState = false;
     this.isBlinking = false;
   }
 
   protected timeoutFunction(durationLeft: number, lastTimeout: number) {
     this.blinkState = !this.blinkState;
+    
+    // Trigger a short pulse effect
+    this.triggerPulse();
 
     const now = Date.now();
     const timeDiff = now - this.blinkLastTime;
@@ -64,7 +72,7 @@ export class SpikePlantedComponent {
     if (durationLeft > 20 * 1000) nextTimeout = 1000;
     else if (durationLeft > 10 * 1000) nextTimeout = 500;
     else if (durationLeft > 5 * 1000) nextTimeout = 250;
-    else if (durationLeft > 1 * 1000) nextTimeout = 125;
+    else if (durationLeft > 1 * 1000) nextTimeout = 250;
     else {
       this.endBlink();
       return; //another recursion exit
@@ -76,5 +84,18 @@ export class SpikePlantedComponent {
     this.blinkTimerRef = setTimeout(() => {
       this.timeoutFunction(durationLeft, nextTimeout);
     }, nextTimeout);
+  }
+
+  protected triggerPulse() {
+    // Clear any existing pulse timer
+    clearTimeout(this.pulseTimerRef);
+    
+    // Start pulse effect
+    this.pulseState = true;
+    
+    // End pulse effect after a short duration (200ms)
+    this.pulseTimerRef = setTimeout(() => {
+      this.pulseState = false;
+    }, 200);
   }
 }

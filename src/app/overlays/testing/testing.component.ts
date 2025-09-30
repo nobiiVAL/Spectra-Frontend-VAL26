@@ -31,7 +31,7 @@ export class TestingComponent implements OnInit {
         seriesInfo: {
           needed: 3,
           wonLeft: 2,
-          wonRight: 2,
+          wonRight: 1,
           mapInfo: [
             {
               type: "past",

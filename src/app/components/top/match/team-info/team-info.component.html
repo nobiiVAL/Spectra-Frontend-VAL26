@@ -146,4 +146,10 @@
   <div class="absolute top-[1vh]" [class]="dataModel.sponsorInfo().enabled ? 'right-[21.7vw]' : 'right-[34.5vw]'">
     <img [src]="dataModel.teams()[1].teamUrl" class="w-[4vh] h-[4vh] max-w-[4vh] max-h-[4vh] object-contain"/>
   </div>
+    <div class="absolute top-[8.5vh] left-[50vw] -translate-x-1/2">
+      <div class="relative flex items-center">
+        <div class="spike-side absolute" [class]="dataModel.teams()[0].isAttacking ? 'left-[-15px]' : 'right-[-15px] scale-x-[-1]'"></div>
+          <img src="assets/misc/Spike_Icon.svg" [class]="dataModel.spikeState().planted ? 'opacity-0' : (dataModel.spikeState().defused || dataModel.spikeState().detonated ? 'delay-300 opacity-100' : 'opacity-100')"/>
+      </div>
+    </div>
 </div>

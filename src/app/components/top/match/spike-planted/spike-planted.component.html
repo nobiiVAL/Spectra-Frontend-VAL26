@@ -1,18 +1,22 @@
 @if (show()) {
+  <!-- Background Rectangle -->
   <div
-    class="vw-138 vh-71 bg-timer relative"
-    animate.enter="animate-spike-slide-in animate-duration-300"
-    animate.leave="animate-spike-slide-out animate-duration-300"
+    class="spike-background-rect"
+    animate.enter="animate-rect-grow animate-duration-300"
+    animate.leave="animate-rect-shrink animate-duration-300"
+  ></div>
+  
+  <!-- Spike Icon -->
+  <div
+    class="vw-138 vh-71 relative z-5"
+    animate.enter="animate-spike-slide-up animate-duration-300"
+    animate.leave="animate-spike-slide-down animate-duration-300"
   >
     <img
-      class="absolute top-1/5 left-1/2 aspect-square -translate-x-1/2"
-      [class.hidden]="!blinkState"
+      class="absolute top-1/3 left-1/2 aspect-square spike-base transition-all duration-200"
+      [class.spike-pulse]="pulseState"
+      [class.spike-end-white]="!isBlinking && show()"
       src="assets/misc/Spike_top_light.svg"
-    />
-    <img
-      class="absolute top-1/5 left-1/2 aspect-square -translate-x-1/2"
-      [class.hidden]="blinkState"
-      src="assets/misc/Spike_top_dark.svg"
     />
   </div>
 }

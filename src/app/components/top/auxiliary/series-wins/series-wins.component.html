@@ -1,9 +1,33 @@
 @if (dataModel.seriesInfo().needed > 1) {
-  <div class="flex flex-row gap-1">
+  <div class="flex flex-row z-0">
+    <div class="absolute -top-2.5 w-full h-full z-0" [class]="dataModel.seriesInfo().needed == 2 ? '-left-7' : (dataModel.seriesInfo().needed == 3 ? '-left-4' : '-left-1')">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="87.563" height="38.968" viewBox="0 0 87.563 38.968">
+        <defs>
+          <radialGradient id="radial-gradient" cx="0.5" cy="-0.094" r="0.713" gradientTransform="translate(0.385 -0.637) rotate(90) scale(1 0.835)" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-opacity="0.82"/>
+            <stop offset="1" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <path id="bg-left" data-name="Path 6" d="M1566.473,132.574c4.271-3.919,8.21-10.593,11.147-10.619s60.129.017,62.3,0,4.83,5.429,9.942,10.556,0,28.4,0,28.4h-83.394S1562.2,136.493,1566.473,132.574Z" transform="translate(-1564.575 -121.947)" fill="url(#radial-gradient)"/>
+      </svg>
+    </div>
+    <div class="absolute -top-2.5 w-full h-full z-0" [class]="dataModel.seriesInfo().needed == 2 ? '-right-60' : (dataModel.seriesInfo().needed == 3 ? '-right-63' : '-right-66')">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="87.716" height="38.981" viewBox="0 0 87.716 38.981">
+            <defs>
+              <radialGradient id="radial-gradient" cx="0.5" cy="-0.091" r="0.678" gradientTransform="matrix(0, 1, 0.904, 0, 0.582, -0.591)" gradientUnits="objectBoundingBox">
+                <stop offset="0" stop-opacity="0.82"/>
+                <stop offset="1" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+          <path id="bg-right" data-name="Path 7" d="M1650.646,132.381c-4.357-3.407-8.807-10.473-11.369-10.462s-60.613.047-61.922.049-5.141,5.534-10.252,10.661-.147,28.271-.147,28.271h83.394S1655,135.788,1650.646,132.381Z" transform="translate(-1564.792 -121.92)" fill="url(#radial-gradient)"/>
+        </svg>
+      </div>
+    </div>
+  <div class="flex flex-row gap-3">
     @for (i of numSequence(dataModel.seriesInfo().needed); track $index) {
-      <div class="mapwin-pip" [class.full]="$index < dataModel.seriesInfo().wonLeft"></div>
+      <div class="mapwin-pip" [class.full]="(dataModel.seriesInfo().needed - 1 - $index) < dataModel.seriesInfo().wonLeft"></div>
     }
-    <div class="vw-175"></div>
+    <div [class]="dataModel.seriesInfo().needed == 2 ? 'vw-212' : (dataModel.seriesInfo().needed == 3 ? 'vw-192' : 'vw-170')"></div>
     @for (i of numSequence(dataModel.seriesInfo().needed); track $index) {
       <div class="mapwin-pip" [class.full]="$index < dataModel.seriesInfo().wonRight"></div>
     }
