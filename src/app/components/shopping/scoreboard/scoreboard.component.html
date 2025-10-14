@@ -1,6 +1,8 @@
 @if (isShown()) {
   <div
     class="vw-1920 vh-316 flex flex-row bg-[#171C22B3] mt-53.5"
+    animate.enter="animate-scoreboard-in animate-duration-180"
+    animate.leave="animate-scoreboard-out animate-duration-180"
   >
     <!-- Score blocks -->
     @for (team of dataModel.teams(); track $index; let teamIndex = $index) {
@@ -8,7 +10,6 @@
         class="flex flex-col gap-1 rounded-sm py-4 transform translate-x-1"
         [class]="teamIndex === 0 ? 'ml-3 mr-2.5' : 'ml-2.5 mr-3'"
         style="gap: 4px;"
-        animate.enter="animate-scoreboard-in animate-duration-300"
       >
         @for (player of team.players; track $index) {
           @if (!dataModel.minimalMode()) {

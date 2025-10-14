@@ -3,13 +3,11 @@
   [class.flex-row-reverse!]="right"
 >
   <div class="w-[164px] h-[50px] bg-[#141D26]/90 border border-[#707070] flex items-center justify-center">
-    <div class="font-foundry-bold flex flex-row text-center gap-4 text-[19px]" [class.flex-row-reverse]="right">
-      @if (player.moneySpent > 0) {
-        <div class="text-credits-negative/80 flex flex-row justify-center gap-0.5">
+    <div class="w-full font-foundry-bold flex flex-row text-center justify-around text-[19px]" [class.flex-row-reverse]="right">
+        <div class="text-credits-negative/80 flex flex-row justify-center gap-0.5" [style.opacity]="player.moneySpent === 0 ? '0.7' : '1'">
           <p>-</p>
           <p>{{ formatNumber(player.moneySpent) }}</p>
         </div>
-      }
       <div class="flex flex-row justify-center gap-0.5 text-white/80 items-center">
         <img class="w-3 h-3" src="assets/misc/ValorantCreditsWhite.svg" />
         <p>{{ formatNumber(player.money) }}</p>

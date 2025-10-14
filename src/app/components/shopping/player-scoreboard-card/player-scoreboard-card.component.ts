@@ -34,12 +34,12 @@ export class PlayerScoreboardCardComponent {
     return AgentRoleService.getAgentRole(agent);
   }
 
-  formatNumber(number: number): string {
-    return new Intl.NumberFormat().format(number);
-  }
-
   getTeamColor(): string {
     return this.color() === 'attacker' ? '#ff4557' : '#21fec2';
+  }
+
+  formatNumber(number: number): string {
+    return this.dataModel.numberFormatter().format(number);
   }
 
   private static idCounter = 0;

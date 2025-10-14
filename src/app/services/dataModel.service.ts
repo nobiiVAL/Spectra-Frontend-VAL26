@@ -80,34 +80,44 @@ export class DataModelService {
     }
   }
 
+
+  public  numberFormatter = computed<Intl.NumberFormat>(() => {
+    try {
+      return new Intl.NumberFormat([this.language(), "en"], { useGrouping: true });
+    } catch (error) {
+      console.warn(`Invalid locale "${this.language()}", falling back to "en"`, error);
+      return new Intl.NumberFormat("en", { useGrouping: true });
+    }
+  });
+
   private onMapbanUpdate(data: any) {
     this.mapban.set(data);
   }
 
-  public readonly groupCode = signal("");
-  public readonly sessionId = signal("");
-  public readonly language = signal("en");
-  public readonly minimalMode = signal(false);
-  public readonly hideAuxiliary = signal(false);
+  public  groupCode = signal("");
+  public  sessionId = signal("");
+  public  language = signal("en");
+  public  minimalMode = signal(false);
+  public  hideAuxiliary = signal(false);
 
-  public readonly match = signal<IMatchData>(initialMatchData, { equal: () => false });
-  public readonly teams = computed(() => this.match().teams, { equal: () => false });
-  public readonly timeoutState = computed(() => this.match().timeoutState, {
+  public  match = signal<IMatchData>(initialMatchData, { equal: () => false });
+  public  teams = computed(() => this.match().teams, { equal: () => false });
+  public  timeoutState = computed(() => this.match().timeoutState, {
     equal: isEqual,
   });
-  public readonly spikeState = computed(() => this.match().spikeState, {
+  public  spikeState = computed(() => this.match().spikeState, {
     equal: isEqual,
   });
-  public readonly seriesInfo = computed(() => this.match().tools.seriesInfo);
-  public readonly seedingInfo = computed(() => this.match().tools.seedingInfo);
-  public readonly sponsorInfo = computed(() => this.match().tools.sponsorInfo);
-  public readonly watermarkInfo = computed(() => this.match().tools.watermarkInfo);
-  public readonly tournamentInfo = computed(() => this.match().tools.tournamentInfo);
-  public readonly playercamsInfo = computed(() => this.match().tools.playercamsInfo, {
+  public  seriesInfo = computed(() => this.match().tools.seriesInfo);
+  public  seedingInfo = computed(() => this.match().tools.seedingInfo);
+  public  sponsorInfo = computed(() => this.match().tools.sponsorInfo);
+  public  watermarkInfo = computed(() => this.match().tools.watermarkInfo);
+  public  tournamentInfo = computed(() => this.match().tools.tournamentInfo);
+  public  playercamsInfo = computed(() => this.match().tools.playercamsInfo, {
     equal: () => false,
   });
 
-  public readonly mapban = signal<IMapbanSessionData>(initialMapbanData, { equal: () => false });
+  public  mapban = signal<IMapbanSessionData>(initialMapbanData, { equal: () => false });
 }
 
 //setting up with empty match state so certain ui parts dont complain
