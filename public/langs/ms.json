@@ -19,5 +19,5 @@
   "scoreboard.deaths": "Deaths",
   "scoreboard.assists": "Assists",
   "timeout.technical_pause": "JEDA TEKNIKAL",
-  "timeout.tactical_timeout": "Jeda Taktikal {{teamName}}"
+  "timeout.tactical_timeout": "Jeda Taktikal"
 }

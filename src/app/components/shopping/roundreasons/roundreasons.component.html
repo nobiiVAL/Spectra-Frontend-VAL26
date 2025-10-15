@@ -29,7 +29,20 @@
             [src]="team.teamUrl"
             [alt]="team.teamName"
           />
-          <p class="font-foundry-extrabold text-[20px] text-[#BABABA] absolute z-10 left-2 -top-4">{{ team.teamTricode }}</p>
+          <p class="font-foundry-extrabold text-[20px] text-[#BABABA] absolute z-10 left-0.5 -top-4">{{ team.teamTricode }}</p>
+          
+          <!-- Timeout squares -->
+          <div class="absolute z-10 flex flex-col gap-1" style="left: 66px; top: -16px;">
+            @for (square of [0, 1]; track square) {
+              <div 
+                class="border-2 transition-colors duration-100"
+                [class.timeout-square-animate]="shouldTimeoutSquareAnimate(teamIndex, square)"
+                style="width: 8px; height: 8px; border-color: #6E7D84;"
+                [style.background-color]="isTimeoutSquareFilled(teamIndex, square) ? '#6E7D84' : 'transparent'">
+              </div>
+            }
+          </div>
+          
           <!-- Rectangle under team name -->
           <div 
             class="absolute -top-[28px] left-0 transform border border-[#707070] -z-10"
@@ -47,7 +60,7 @@
             <!-- Current round highlight rectangle -->
             @if (recordIndex === dataModel.match().roundNumber - 1) {
               <div 
-                class="absolute z-20"
+                class="absolute z-20 current-round-animate"
                 style="width: 42px; height: 102px; top: 0px; left: 50%; transform: translateX(-50%); 
                        border: 4px solid #EADEAE; box-sizing: border-box; background: transparent;
                        filter: drop-shadow(0 0 8px #E9D06D);">

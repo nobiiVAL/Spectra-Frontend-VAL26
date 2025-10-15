@@ -19,5 +19,5 @@
   "scoreboard.deaths": "Ölme",
   "scoreboard.assists": "Asist",
   "timeout.technical_pause": "TEKNİK DURAKLATMA",
-  "timeout.tactical_timeout": "{{teamName}} Taktik Duraklatma"
+  "timeout.tactical_timeout": "TAKTİK DURAKLATMA"
 }

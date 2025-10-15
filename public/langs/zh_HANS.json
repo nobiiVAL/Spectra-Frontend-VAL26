@@ -19,5 +19,5 @@
   "scoreboard.deaths": "败阵",
   "scoreboard.assists": "助攻",
   "timeout.technical_pause": "技术暂停",
-  "timeout.tactical_timeout": "{{teamName}} 战术暂停"
+  "timeout.tactical_timeout": "战术暂停"
 }

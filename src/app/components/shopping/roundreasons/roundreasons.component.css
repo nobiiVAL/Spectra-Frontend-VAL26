@@ -69,3 +69,36 @@
   background-color: color-mix(in srgb, var(--color-defender-roundReasons) 74%, transparent) !important;
   border-color: color-mix(in srgb, var(--color-defender-primary) 20%, transparent) !important;
 }
+
+/* Timeout square blinking animation */
+@keyframes timeout-blink {
+  0% {
+    background-color: #6E7D84;
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #6E7D84;
+  }
+}
+
+.timeout-square-animate {
+  animation: timeout-blink 2s ease-in-out infinite;
+}
+
+@keyframes current-round-pulse {
+  0% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.current-round-animate {
+  animation: current-round-pulse 3s ease-in-out infinite;
+}

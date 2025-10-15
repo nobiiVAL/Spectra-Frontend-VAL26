@@ -1,4 +1,4 @@
-import { Component, computed, inject } from "@angular/core";
+import { Component, computed, inject, signal, effect } from "@angular/core";
 import { DataModelService } from "../../../services/dataModel.service";
 
 @Component({
@@ -9,6 +9,32 @@ import { DataModelService } from "../../../services/dataModel.service";
 })
 export class RoundreasonsComponent {
   dataModel = inject(DataModelService);
+
+  // Track which team's timeout square should animate (0 or 1, -1 for none)
+  animatingTeam = signal<number>(-1);
+  // Track timeout counts when animation starts (to handle server delay)
+  animationStartCounts = signal<{ left: number; right: number }>({ left: 2, right: 2 });
+
+  constructor() {
+    // Effect to detect when a timeout starts and setup animation
+    effect(() => {
+      const timeoutState = this.dataModel.timeoutState();
+      const timeoutCounter = this.dataModel.timeoutCounter();
+      
+      if (timeoutState.leftTeam && this.animatingTeam() !== 0) {
+        // Left team timeout started
+        this.animationStartCounts.set({ left: timeoutCounter.left, right: timeoutCounter.right });
+        this.animatingTeam.set(0);
+      } else if (timeoutState.rightTeam && this.animatingTeam() !== 1) {
+        // Right team timeout started
+        this.animationStartCounts.set({ left: timeoutCounter.left, right: timeoutCounter.right });
+        this.animatingTeam.set(1);
+      } else if (!timeoutState.leftTeam && !timeoutState.rightTeam) {
+        // No timeout active
+        this.animatingTeam.set(-1);
+      }
+    });
+  }
 
   isShown = computed(() => this.dataModel.match().roundPhase === "shopping" && this.dataModel.match().roundNumber > 1);
 
@@ -93,5 +119,41 @@ export class RoundreasonsComponent {
       return "";
     }
     return `bg-roundwin-${record.wasAttack ? "attacker" : "defender"}-${team == this.dataModel.teams()[0] ? "top" : "bottom"}`;
+  }
+
+  // Get timeout count for a team (0 = left, 1 = right)
+  getTimeoutCount(teamIndex: number): number {
+    const counter = this.dataModel.timeoutCounter();
+    return teamIndex === 0 ? counter.left : counter.right;
+  }
+
+  // Check if a timeout square should be filled
+  isTimeoutSquareFilled(teamIndex: number, squareIndex: number): boolean {
+    const timeoutCount = this.getTimeoutCount(teamIndex);
+    
+    // If team is animating, use the count from when animation started
+    if (this.animatingTeam() === teamIndex) {
+      const startCounts = this.animationStartCounts();
+      const animationCount = teamIndex === 0 ? startCounts.left : startCounts.right;
+      return squareIndex < animationCount;
+    }
+    
+    return squareIndex < timeoutCount;
+  }
+
+  // Check if a timeout square should animate
+  shouldTimeoutSquareAnimate(teamIndex: number, squareIndex: number): boolean {
+    if (this.animatingTeam() !== teamIndex) return false;
+    
+    const startCounts = this.animationStartCounts();
+    const animationCount = teamIndex === 0 ? startCounts.left : startCounts.right;
+    
+    // Animate the square that represents the timeout being used
+    // If team has 2 timeouts, animate bottom square (index 1)
+    // If team has 1 timeout, animate top square (index 0)
+    if (animationCount === 2 && squareIndex === 1) return true;
+    if (animationCount === 1 && squareIndex === 0) return true;
+    
+    return false;
   }
 }

@@ -19,5 +19,5 @@
   "scoreboard.deaths": "Morts",
   "scoreboard.assists": "Aides",
   "timeout.technical_pause": "PAUSE TECHNIQUE",
-  "timeout.tactical_timeout": "{{teamName}} Pause tactique"
+  "timeout.tactical_timeout": "PAUSE TACTIQUE"
 }

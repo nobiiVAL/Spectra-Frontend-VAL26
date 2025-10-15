@@ -19,5 +19,5 @@
   "scoreboard.deaths": "Chết",
   "scoreboard.assists": "Hỗ trợ",
   "timeout.technical_pause": "TẠM DỪNG KỸ THUẬT",
-  "timeout.tactical_timeout": "{{teamName}} TẠM DỪNG HỘI Ý"
+  "timeout.tactical_timeout": "TẠM DỪNG HỘI Ý"
 }

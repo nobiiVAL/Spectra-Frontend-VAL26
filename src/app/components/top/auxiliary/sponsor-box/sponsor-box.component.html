@@ -1,4 +1,4 @@
-@if (dataModel.sponsorInfo().enabled) {
+@if (dataModel.sponsorInfo().enabled && dataModel.sponsorInfo().sponsors.length > 0) {
   <div
     class="absolute top-0 -right-60 vw-245 vh-88 bg-no-repeat bg-left bg-cover"
     [style.background-image]="'url(assets/topscore/sponsorBox.svg)'"
@@ -7,9 +7,12 @@
       <img
         animate.enter="animate-fade-in"
         animate.leave="animate-fade-out"
-        class="max-vw-156! max-vh-71! absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="max-vw-156! max-vh-71! absolute top-1/2 left-1/2 -translate-x-[44%] -translate-y-1/2 object-contain"
         [class.hidden]="currentIndex() !== $index"
         [src]="sponsor"
+        [alt]="'Sponsor ' + ($index + 1)"
+        (error)="onImageError($event, sponsor, $index)"
+        (load)="onImageLoad(sponsor, $index)"
       />
     }
   </div>

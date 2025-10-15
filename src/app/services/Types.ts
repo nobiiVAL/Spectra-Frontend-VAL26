@@ -82,6 +82,11 @@ export interface ITimeoutState {
   timeRemaining: number;
 }
 
+export interface ITimeoutCounter {
+  left: number;
+  right: number;
+}
+
 //#endregion
 //#region Tools
 
@@ -90,6 +95,7 @@ export interface IToolsData {
   seedingInfo: ISeedingInfo;
   tournamentInfo: ITournamentInfo;
   timeoutDuration: number;
+  timeoutCounter: ITimeoutCounter;
   sponsorInfo: ISponsorInfo;
   watermarkInfo: IWatermarkInfo;
   playercamsInfo: IPlayercamsInfo;

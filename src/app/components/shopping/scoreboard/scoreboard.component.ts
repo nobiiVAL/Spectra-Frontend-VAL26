@@ -18,4 +18,21 @@ export class ScoreboardComponent {
   TranslateKeys = TranslateKeys;
 
   isShown = computed(() => this.dataModel.match().roundPhase === "shopping");
+
+  // sort player list by KDA
+  sortedTeams = computed(() => {
+    return this.dataModel.teams().map(team => ({
+      ...team,
+      players: [...team.players].sort((a, b) => {
+        if (a.kills !== b.kills) {
+          return b.kills - a.kills;
+        }
+        if (a.deaths !== b.deaths) {
+          return a.deaths - b.deaths;
+        }
+        
+        return b.assists - a.assists;
+      })
+    }));
+  });
 }

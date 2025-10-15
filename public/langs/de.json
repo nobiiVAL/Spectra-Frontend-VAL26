@@ -17,5 +17,5 @@
   "team.defender": "VERTEIDIGER",
   "scoreboard.spent": "DIESE RUNDE AUSGEGEBEN",
   "timeout.technical_pause": "TECHNISCHE PAUSE",
-  "timeout.tactical_timeout": "{{teamName}} TAKTISCHE PAUSE"
+  "timeout.tactical_timeout": "TAKTISCHE PAUSE"
 }
