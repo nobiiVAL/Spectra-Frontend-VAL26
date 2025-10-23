@@ -1,11 +1,11 @@
 <app-match-overlay></app-match-overlay>
 
 <div class="absolute top-0 left-0 -z-3 aspect-video">
-  <img class="" src="assets/backgrounds/bg1.webp" />
+  <img class="" [src]="'assets/backgrounds/bg' + currentBackground() + '.webp'" />
 </div>
 
 <!-- general buttons -->
-<div class="pos-x-center pos-y-350 absolute z-10 flex flex-row gap-1">
+<div class="pos-x-center pos-y-500 absolute z-10 flex flex-row gap-1">
   <button (click)="changeRoundPhase()">Change Round Phase</button>
   <button (click)="swapTeamColors()">Swap Team Colors</button>
   <button (click)="techPause()">Start/End Tech Pause</button>

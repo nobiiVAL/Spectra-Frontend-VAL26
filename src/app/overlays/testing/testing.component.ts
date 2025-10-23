@@ -582,15 +582,32 @@ export class TestingComponent implements OnInit {
     this.showInterface.update((v) => !v);
   }
 
-  switchBackground() {}
+  currentBackground = signal(1);
+  switchBackground() {
+    this.currentBackground.update((v) => {
+      return v >= 4 ? 1 : v + 1;
+    });
+  }
 
   techPause() {
-    this.stopTimeoutTimer();
-    this.dataModel.match.update((v) => {
-      const ret = v;
-      ret.timeoutState.techPause = !ret.timeoutState.techPause;
-      return ret;
-    });
+    const currentState = this.dataModel.match().timeoutState;
+    const isCurrentlyActive = currentState.techPause;
+    
+    if (isCurrentlyActive) {
+      // End tech pause
+      this.stopTimeoutTimer();
+    } else {
+      // Start tech pause
+      this.stopTimeoutTimer(); // Stop any existing timeout first
+      this.dataModel.match.update((v) => {
+        const ret = v;
+        ret.timeoutState.techPause = true;
+        ret.timeoutState.leftTeam = false;
+        ret.timeoutState.rightTeam = false;
+        ret.timeoutState.timeRemaining = 0;
+        return ret;
+      });
+    }
   }
   //#endregion
 
@@ -625,20 +642,26 @@ export class TestingComponent implements OnInit {
   }
 
   timeout(teamIndex: number) {
+    const currentState = this.dataModel.match().timeoutState;
+    const isLeftActive = currentState.leftTeam;
+    const isRightActive = currentState.rightTeam;
+    
     if (
-      (teamIndex == 0 && this.dataModel.timeoutState().leftTeam) ||
-      (teamIndex == 1 && this.dataModel.timeoutState().rightTeam)
+      (teamIndex == 0 && isLeftActive) ||
+      (teamIndex == 1 && isRightActive)
     ) {
-      //allows to toggle the timeout back off
+      // End the timeout for this team
       this.stopTimeoutTimer();
       return;
     }
-    this.stopTimeoutTimer();
+    
+    // Start timeout for the team
+    this.stopTimeoutTimer(); // Stop any existing timeout first
     this.dataModel.match.update((v) => {
       const ret = v;
       ret.timeoutState.techPause = false;
-      ret.timeoutState.leftTeam = teamIndex == 0 ? !ret.timeoutState.leftTeam : false;
-      ret.timeoutState.rightTeam = teamIndex == 1 ? !ret.timeoutState.rightTeam : false;
+      ret.timeoutState.leftTeam = teamIndex == 0;
+      ret.timeoutState.rightTeam = teamIndex == 1;
       ret.timeoutState.timeRemaining = ret.tools.timeoutDuration;
       return ret;
     });
@@ -773,6 +796,7 @@ export class TestingComponent implements OnInit {
     clearInterval(this.timeoutTimerRef);
     this.dataModel.match.update((v) => {
       const ret = v;
+      ret.timeoutState.techPause = false;
       ret.timeoutState.leftTeam = false;
       ret.timeoutState.rightTeam = false;
       ret.timeoutState.timeRemaining = 0;

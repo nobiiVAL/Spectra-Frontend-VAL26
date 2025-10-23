@@ -103,7 +103,7 @@ export class DataModelService {
   public  match = signal<IMatchData>(initialMatchData, { equal: () => false });
   public  teams = computed(() => this.match().teams, { equal: () => false });
   public  timeoutState = computed(() => this.match().timeoutState, {
-    equal: isEqual,
+    equal: () => false,
   });
   public  timeoutCounter = computed(() => this.match().tools.timeoutCounter, {
     equal: isEqual,

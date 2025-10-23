@@ -1,32 +1,69 @@
 <div
-  class="vw-875 vh-200 animate-duration-300 relative top-0 overflow-hidden"
+  class="vw-788 vh-178 animate-duration-300 relative top-0"
   [class.hidden]="hide"
-  [class.animate-swish]="inAnimation"
-  [class.animate-swish-out]="outAnimation"
+  [class.animate-transition]="inAnimation"
+  [class.animate-transition-out]="outAnimation"
 >
-  <div
-    class="vw-875 vh-200 relative top-0 left-0 flex flex-col items-center justify-center overflow-hidden"
-  >
-    <img class="absolute top-0 left-0 -z-1 h-full w-full" [src]="tournamentBackgroundUrl()" />
-
     @if (timeoutInfo().techPause) {
-      <p class="font-unbounded text-5xl font-bold text-white uppercase">
-        {{ TranslateKeys.Timeout_Techpause | translate }}
-      </p>
-    } @else {
-      <img class="max-vh-120 max-vw-400" [src]="timeoutTeam().teamUrl" />
-      <p class="font-unbounded text-2xl font-bold text-white">
-        {{ TranslateKeys.Timeout_Tactical | translate: { teamName: timeoutTeam().teamName } }}
-      </p>
-      <div class="vh-23 absolute bottom-0 flex w-full items-center justify-center bg-white/20">
-        <div
-          class="timer-transition absolute left-0 h-full bg-white/35"
-          [style.width]="timerWidth()"
-        ></div>
-        <p class="font-montserrat z-2 text-lg font-bold text-white text-shadow-2xs">
-          {{ timeoutInfo().timeRemaining }}s
+      <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+        <svg class="absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="788" height="178.06" viewBox="0 0 788 178.06" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <radialGradient id="tech-timeout-radial-gradient" cx="55.3%" cy="188.7%" r="87.6%" fx="55.3%" fy="188.7%" gradientTransform="matrix(1, -0.011, 0.034, 1.775, -0.037, -1.489)">
+              <stop offset="0%" stop-color="#959595"/>
+              <stop offset="100%" stop-color="#0a0f14" stop-opacity="0.95"/>
+            </radialGradient>
+            <linearGradient id="tech-timeout-linear-gradient" x1="0%" y1="50%" x2="91.8%" y2="50%">
+              <stop offset="0%" stop-color="#0a0f14" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#0a0f14" stop-opacity="0.949"/>
+            </linearGradient>
+            <linearGradient id="tech-timeout-linear-gradient-2" x1="100%" y1="50%" x2="6.5%" y2="50%">
+              <stop offset="0%" stop-color="#0a0f14" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#0a0f14" stop-opacity="0.949"/>
+            </linearGradient>
+          </defs>
+          <g id="Component" transform="translate(-0.5)">
+            <path id="Path_70" data-name="Path 70" d="M-261.156,0V-88.875h-13.062V-110h48.125v21.125h-13.062V0Zm41.188,0V-110h44v21.25h-21.625v21.438h20.75v20.688h-20.75v25.188h23.063V0Zm78.313,1q-11.937,0-19.219-7.437t-7.281-20.812V-78q0-16,6.344-24.5t20.656-8.5a32.221,32.221,0,0,1,13.906,2.875,22.032,22.032,0,0,1,9.594,8.594q3.5,5.719,3.5,14.406v19h-21.875v-16.25q0-4.937-1.25-6.656a4.471,4.471,0,0,0-3.875-1.719q-3.063,0-4.125,2.219a13.805,13.805,0,0,0-1.062,5.906v55.063q0,4.562,1.344,6.438a4.443,4.443,0,0,0,3.844,1.875,4.077,4.077,0,0,0,3.969-2.312,13.44,13.44,0,0,0,1.156-6V-47.375h22.125v20.813q0,14.5-7.312,21.031T-141.656,1Zm35.063-1V-110h21.875v39.313h10.375V-110h21.875V0H-74.344V-49.875H-84.719V0Zm93.875,0V-110H16.344q9.125,0,14.469,4.063a22.244,22.244,0,0,1,7.656,11.563A61.043,61.043,0,0,1,40.781-76.5a69.28,69.28,0,0,1-1.937,17.406,21.23,21.23,0,0,1-6.906,11.469q-4.969,4.062-14.094,4.063H8.906V0ZM8.906-63.312h1.25q6.125,0,7.5-3.437t1.375-10.125a27.305,27.305,0,0,0-1.344-9.656q-1.344-3.406-6.344-3.406H8.906ZM42.844,0,53.469-110H90.781L101.219,0H80.406L78.844-17.75H65.594L64.219,0ZM67.156-35.312h10L72.344-91.25h-1ZM133.406,1q-13.75,0-20.25-7.719t-6.5-22.719V-110h21.375v79.688a43.1,43.1,0,0,0,.313,5.281,9.181,9.181,0,0,0,1.438,4.156,4.1,4.1,0,0,0,3.625,1.625,4.2,4.2,0,0,0,3.688-1.594A8.767,8.767,0,0,0,138.5-25a48.691,48.691,0,0,0,.281-5.312V-110h21.375v80.563q0,15-6.5,22.719T133.406,1Zm61.313,0Q179.656,1,173-6.5t-6.656-23.875v-10.75h21.75v13.75a12.76,12.76,0,0,0,1.156,5.969,4.183,4.183,0,0,0,4.031,2.156q3,0,4.156-1.75t1.156-5.75a30.528,30.528,0,0,0-1-8.469,18.976,18.976,0,0,0-3.469-6.5,72.715,72.715,0,0,0-6.844-7.219l-9.875-9.375Q166.344-68.75,166.344-82.187q0-14.062,6.531-21.437T191.781-111q15.125,0,21.469,8.063t6.344,24.5H197.219V-86a4.665,4.665,0,0,0-1.281-3.5,4.754,4.754,0,0,0-3.469-1.25,4.714,4.714,0,0,0-3.844,1.469,5.724,5.724,0,0,0-1.219,3.781,11.932,11.932,0,0,0,1.25,5,22.171,22.171,0,0,0,4.938,6.188l12.688,12.188a73.259,73.259,0,0,1,7,7.656,33.256,33.256,0,0,1,5.125,9.375,38.438,38.438,0,0,1,1.938,13.031q0,15.5-5.719,24.281T194.719,1Zm32.938-1V-110h44v21.25H250.031v21.438h20.75v20.688h-20.75v25.188h23.063V0Z" transform="translate(394.5 144.06)" fill="rgba(31,31,31,0.8)"/>
+            <path id="Union_3" data-name="Union 3" d="M308,178V0H616V51.05L607,67l0,41.079,9,15.257V178ZM0,178V123.335l9-15.257L9,67,0,51.05V0H308V178Z" transform="translate(86.5 0.06)" opacity="0.91" fill="url(#tech-timeout-radial-gradient)"/>
+            <path id="Path_22" data-name="Path 22" d="M5973,2460.725h86.5v51.1l9,15.991v41.064l-9,15.24v54.666H5973Z" transform="translate(-5972.5 -2460.725)" fill="url(#tech-timeout-linear-gradient)"/>
+            <path id="Path_25" data-name="Path 25" d="M6068.5,2460.725H5982v51.1l-9,15.991v41.064l9,15.24v54.666h86.5Z" transform="translate(-5280 -2460.725)" fill="url(#tech-timeout-linear-gradient-2)"/>
+          </g>
+        </svg>
+        <p class="font-foundry-extrabold text-[3em] text-white uppercase text-center max-w-full px-4 z-2">
+          {{ TranslateKeys.Timeout_Techpause | translate }}
         </p>
       </div>
+    } @else {
+      <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+        <svg class="absolute top-0 left-0 z-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="788" height="178.06" viewBox="0 0 788 178.06">
+          <defs>
+            <radialGradient id="tac-radial-gradient" cx="0.547" cy="2.593" r="1.321" gradientTransform="matrix(1, -0.007, 0.013, 1.775, -0.029, -1.84)" gradientUnits="objectBoundingBox">
+              <stop offset="0" [attr.stop-color]="timeoutTeam().isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)'" stop-opacity="0.92"/>
+              <stop offset="1" stop-color="#0a0f14" stop-opacity="0.92"/>
+            </radialGradient>
+            <linearGradient id="tac-linear-gradient" y1="0.5" x2="0.918" y2="0.5" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#0a0f14" stop-opacity="0"/>
+              <stop offset="1" stop-color="#0a0f14" stop-opacity="0.949"/>
+            </linearGradient>
+            <linearGradient id="tac-linear-gradient-reverse" y1="0.5" x2="0.918" y2="0.5" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#0a0f14" stop-opacity="0.949"/>
+              <stop offset="1" stop-color="#0a0f14" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g id="Component" transform="translate(-0.5)">
+            <path id="Path_26" data-name="Path 26" d="M-539.106-137.727v-110.4h-16.226v-26.241h59.78v26.241h-16.226v110.4Zm61.887-.155V-274.523h26.4v136.641Zm44.459,0V-274.523l28.074.155,20.46,72.666,16.287-72.666H-335v136.641h-25v-91.006l-16.031,66.938h-16.4l-15.645-66.938v90.85Zm115.966.155V-274.368h54.656v26.4H-289v26.629h25.775v25.7H-289v31.288h28.648v26.629Zm112.319,1.087q-16.381,0-25.038-9.9t-8.656-28.609v-64.9q0-17.546,8.579-26.629t25.115-9.083q16.537,0,25.116,9.083t8.579,26.629v64.9q0,18.71-8.656,28.609T-204.475-136.641Zm.233-25.154q6.211,0,6.211-12.034v-66.69q0-10.093-6.056-10.093-6.832,0-6.832,10.326v66.612q0,6.366,1.553,9.122A5.418,5.418,0,0,0-204.242-161.795Zm89.551,25.31q-17.08,0-25.154-9.588t-8.074-28.221V-274.368h26.552v98.987a53.541,53.541,0,0,0,.388,6.56,11.4,11.4,0,0,0,1.786,5.163,5.087,5.087,0,0,0,4.5,2.019,5.214,5.214,0,0,0,4.581-1.98,10.891,10.891,0,0,0,1.747-5.163,60.483,60.483,0,0,0,.349-6.6v-98.987h26.552v100.074q0,18.633-8.074,28.221T-114.691-136.485Zm73.653-1.242v-110.4H-57.264v-26.241H2.516v26.241H-13.71v110.4Z" transform="translate(672.166 295.185)" fill="rgba(31,31,31,0.8)"/>
+            <path id="Union_3" data-name="Union 3" d="M308,178V0H616V51.05L607,67l0,41.079,9,15.257V178ZM0,178V123.335l9-15.257L9,67,0,51.05V0H308V178Z" transform="translate(86.5 0.06)" fill="url(#tac-radial-gradient)"/>
+            <path id="Path_22" data-name="Path 22" d="M5973,2460.725h86.5v51.1l9,15.991v41.064l-9,15.24v54.666H5973Z" transform="translate(-5972.5 -2460.725)" fill="url(#tac-linear-gradient)"/>
+            <path id="Path_25" data-name="Path 25" d="M6068.5,2460.725H5982v51.1l-9,15.991v41.064l9,15.24v54.666h86.5Z" transform="translate(-5280 -2460.725)" fill="url(#tac-linear-gradient-reverse)"/>
+          </g>
+        </svg>
+        <p class="absolute bottom-18 font-foundry-extrabold text-[3em] text-white uppercase text-center max-w-full px-4 z-3">
+          {{ TranslateKeys.Timeout_Tactical | translate: { teamName: timeoutTeam().teamName } }}
+        </p>
+        <div class="absolute bottom-6 z-2 flex flex-row justify-center w-full font-foundry-extrabold text-[2em] text-white uppercase">
+          <p class="mr-4">{{ timeoutTeam().isAttacking ? 'ATK' : 'DEF' }}</p>
+          <img class="max-vh-50 max-vw-167 mx-4" [src]="timeoutTeam().teamUrl" />
+          <p class="ml-4">{{ timeoutTeam().teamTricode }}</p>
+        </div>
+      </div>
     }
-  </div>
 </div>

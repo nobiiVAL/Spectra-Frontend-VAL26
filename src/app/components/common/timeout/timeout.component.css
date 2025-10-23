@@ -1,20 +1,18 @@
-.timer-transition {
-  transition: width 1s linear;
-}
-
-@keyframes swish {
+@keyframes transition {
   from {
-    width: 0px;
+    transform: translateY(100%);
+    opacity: 0;
   }
   to {
-    width: 100%;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
-.animate-swish {
-  animation: swish;
-  will-change: width;
+.animate-transition {
+  animation: transition;
+  will-change: transform;
 }
-.animate-swish-out {
-  animation: swish reverse;
-  will-change: width;
+.animate-transition-out {
+  animation: transition reverse;
+  will-change: transform;
 }
