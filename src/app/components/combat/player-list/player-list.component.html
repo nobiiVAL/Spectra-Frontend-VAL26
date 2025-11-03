@@ -6,7 +6,7 @@
     @for (team of dataModel.teams(); track $index; let tIdx = $index) {
       <div class="flex flex-col justify-end gap-6">
         @for (player of team.players; track $index) {
-          @if (!dataModel.minimalMode() && player.maxUltPoints !== 0) {
+          @if (!dataModel.minimalMode()) {
             <app-player-combat-card
               [player]="player"
               [playerHealth]="player.health"

@@ -95,6 +95,7 @@ export interface IToolsData {
   seedingInfo: ISeedingInfo;
   tournamentInfo: ITournamentInfo;
   timeoutDuration: number;
+  timeoutCancellationGracePeriod: number;
   timeoutCounter: ITimeoutCounter;
   sponsorInfo: ISponsorInfo;
   watermarkInfo: IWatermarkInfo;

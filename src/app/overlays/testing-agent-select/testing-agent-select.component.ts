@@ -69,6 +69,7 @@ export class TestingAgentSelectComponent implements OnInit {
           left: 2,
           right: 2,
         },
+        timeoutCancellationGracePeriod: 10,
         sponsorInfo: {
           enabled: true,
           duration: 5000,

@@ -108,6 +108,7 @@ export class DataModelService {
   public  timeoutCounter = computed(() => this.match().tools.timeoutCounter, {
     equal: isEqual,
   });
+  public  timeoutCancellationGracePeriod = computed(() => this.match().tools.timeoutCancellationGracePeriod);
 
   public  spikeState = computed(() => this.match().spikeState, {
     equal: isEqual,
@@ -171,6 +172,7 @@ const initialMatchData: IMatchData = {
       backdropUrl: "",
     },
     timeoutDuration: 60,
+    timeoutCancellationGracePeriod: 10,
     timeoutCounter: {
       left: 2,
       right: 2,

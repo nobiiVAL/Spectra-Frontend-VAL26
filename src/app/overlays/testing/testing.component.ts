@@ -71,13 +71,14 @@ export class TestingComponent implements OnInit {
           left: 2,
           right: 2,
         },
+        timeoutCancellationGracePeriod: 10,
         sponsorInfo: {
           enabled: true,
           duration: 5000,
           sponsors: ["assets/misc/logo.webp", "assets/misc/icon.webp"],
         },
         watermarkInfo: {
-          customText: "CHAMPIONS PARIS: GRAND FINAL",
+          customText: "SPECTRA INVITATIONAL: GRAND FINAL",
           customTextEnabled: true,
           spectraWatermark: true,
         },
