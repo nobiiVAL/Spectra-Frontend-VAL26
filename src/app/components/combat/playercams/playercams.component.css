@@ -1,46 +1,27 @@
-.gradient {
-  height: 150%;
-  width: 100%;
-
+.team-accent {
   &.defender {
-    background:
-      linear-gradient(
-        0deg,
-        rgba(var(--defender-color-rgb), 0.5) 0%,
-        rgba(var(--defender-color-rgb), 0) 100%
-      ),
-      rgba(15, 25, 35, 0);
+    background-color: var(--color-defender-primary);
   }
-
   &.attacker {
-    background:
-      linear-gradient(
-        0deg,
-        rgba(var(--attacker-color-rgb), 0.7) 0%,
-        rgba(var(--attacker-color-rgb), 0) 100%
-      ),
-      rgba(15, 25, 35, 0);
+    background-color: var(--color-attacker-primary);
   }
 }
 
-.killbox-gradient {
-  &.defender {
-    background:
-      linear-gradient(
-        to left,
-        rgba(var(--defender-color-rgb), 0.5) 0%,
-        rgba(var(--defender-color-rgb), 0.2) 100%
-      ),
-      rgba(15, 25, 35, 0);
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
   }
+  100% {
+    transform: translateX(0%);
+  }
+}
 
-  &.attacker {
-    background:
-      linear-gradient(
-        to left,
-        rgba(var(--attacker-color-rgb), 0.7) 0%,
-        rgba(var(--attacker-color-rgb), 0.4) 100%
-      ),
-      rgba(15, 25, 35, 0);
-  }
+.killbox-slide-in {
+  animation-name: slide;
+  animation-timing-function: ease-in-out;
+}
+.killbox-slide-out {
+  animation-name: slide;
+  animation-timing-function: ease-in-out;
+  animation-direction: reverse;
 }

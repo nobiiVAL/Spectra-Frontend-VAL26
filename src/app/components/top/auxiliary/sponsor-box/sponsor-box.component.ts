@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, signal, effect } from "@angular/core";
+import { Component, inject, OnDestroy, signal, effect, computed } from "@angular/core";
 import { DataModelService } from "../../../../services/dataModel.service";
 
 @Component({
@@ -13,9 +13,21 @@ export class SponsorBoxComponent implements OnDestroy {
   currentIndex = signal(0);
   private intervalId?: number;
 
+  // Create a computed signal to track only the relevant sponsor config
+  private sponsorConfig = computed(() => {
+    const info = this.dataModel.sponsorInfo();
+    return {
+      enabled: info.enabled,
+      duration: info.duration,
+      sponsorCount: info.sponsors?.length || 0,
+    };
+  });
+
   constructor() {
     // Set up reactive sponsor rotation using effect
     effect(() => {
+      // Read the computed config to track changes
+      const config = this.sponsorConfig();
       this.setupSponsorRotation();
     });
   }
