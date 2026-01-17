@@ -263,7 +263,9 @@
 
   @if (player.hasSpike) {
     <div 
-    class="absolute -top-2 -right-3 vw-32 vh-32 flex items-center justify-center z-50"
+    class="absolute -top-2 vw-32 vh-32 flex items-center justify-center z-50"
+    [style.right]="right() ? '-0.5rem' : 'auto'"
+    [style.left]="right() ? 'auto' : '-0.5rem'"
     animate.enter="animate-fade-in animate-duration-150"
     animate.leave="animate-fade-out animate-duration-150"
     >

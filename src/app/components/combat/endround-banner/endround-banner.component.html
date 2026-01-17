@@ -73,12 +73,14 @@
             </defs>
             <rect id="Rectangle_78" data-name="Rectangle 78" width="485" height="55" fill="url(#text-bg-gradient)"/>
           </svg>
-          <div class="absolute top-7.5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-row justify-around items-center">
-            <p class="font-foundry-extrabold text-2xl text-white uppercase opacity-0 reveal-background">
-              {{ teamWonSide() | translate }}
+          <div class="absolute top-7.5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-row justify-around items-center gap-6" style="max-width: 300px;">
+            <p class="font-foundry-extrabold text-white uppercase opacity-0 reveal-background whitespace-nowrap"
+               style="font-size: clamp(1rem, 2vw, 1.5rem);">
+              {{ teamWonSide() }}
             </p>
-            <img class="w-10 h-full mx-6 opacity-0 reveal-background" [src]="teamWonLogoUrl()"/>
-            <p class="font-foundry-extrabold text-2xl text-white uppercase opacity-0 reveal-background">
+            <img class="w-10 h-full  flex-shrink-0 opacity-0 reveal-background transform -translate-y-[0.25vh]" [src]="teamWonLogoUrl()"/>
+            <p class="font-foundry-extrabold text-white uppercase opacity-0 reveal-background whitespace-nowrap" 
+               style="font-size: clamp(1rem, 2vw, 1.5rem);">
               {{ teamWonTricode() }}
             </p>
           </div>
@@ -87,8 +89,9 @@
           <div class="absolute inset-0 text-bg-flash z-10" [class.animate]="showAnimation" style="background-color: #DB3131;"></div>
         </div>
 
-        <div class="absolute top-8 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20">
-          <p class="font-foundry-extrabold text-6xl text-white uppercase opacity-0 reveal-text">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20 flex justify-center" style="width: 100vw; max-width: 100vw;">
+          <p class="font-foundry-extrabold text-white uppercase opacity-0 reveal-text whitespace-nowrap"
+             style="font-size: clamp(1.5rem, 5vw, 3.5rem); text-align: center;">
             {{ TranslateKeys.Endround_RoundWin | translate }}
           </p>
           
@@ -99,7 +102,7 @@
     </div>
 
     <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
-      <img class="w-18 h-full opacity-0 reveal-logo" [src]="tournamentIconUrl()" (load)="onImageLoad()"/>
+      <img class="w-[6vh] max-w-[6vh] h-full opacity-0 reveal-logo" [src]="tournamentIconUrl()" (load)="onImageLoad()"/>
       
       <!-- Animated flash background - above content -->
       <div class="absolute tournament-icon-flash z-10" [class.animate]="showAnimation" style="background-color: #DB3131; left: -20px; right: -20px; top: -10px; bottom: -10px;"></div>
