@@ -1,15 +1,16 @@
-@if (dataModel.playercamsInfo().enable) {
+@if (dataModel.playercamsInfo().enable && !isOneVersusOne()) {
   <div [class.hidden]="dataModel.match().roundPhase !== 'combat'">
     @for (team of dataModel.teams(); track $index; let teamIndex = $index) {
       @for (player of team.players; track $index) {
-        @if (this.enabledPlayers().includes(player.fullName) && player.isObserved) {
+        @if (this.enabledPlayers().includes(player.fullName)) {
           <div
             class="bg-black/65 border-black/65 absolute box-border flex aspect-video h-44 flex-col justify-end overflow-clip"
+            [class.hidden]="!player.isObserved"
           >
-            <div class="absolute h-48 w-76.25 bottom-1 left-1">
+            <div class="absolute h-42 w-76.25 top-1 left-1 overflow-hidden">
               <iframe
                 allow="camera;fullscreen;autoplay;"
-                [src]="streams.get(player.fullName)"
+                [src]="getStream(player.fullName)"
                 class="aspect-video w-full"
               ></iframe>
             </div>
@@ -33,7 +34,7 @@
                 [class]="team.isAttacking ? 'attacker' : 'defender'"
               ></div>
               <div
-                class="w-full max-w-85 overflow-clip px-2 text-left font-dinnext-bold text-lg text-white"
+                class="w-full max-w-85 overflow-clip px-2 text-left font-dinnext-bold text-lg text-white whitespace-nowrap"
               >
                 {{ getDisplayName(player.fullName, player.name) }}
               </div>

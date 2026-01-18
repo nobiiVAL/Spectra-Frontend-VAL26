@@ -13,6 +13,7 @@ import { CombatPlayerListComponent } from "../../components/combat/player-list/p
 import { PlayercamsComponent } from "../../components/combat/playercams/playercams.component";
 import { EndroundBannerComponent } from "../../components/combat/endround-banner/endround-banner.component";
 import { TimeoutComponent } from "../../components/common/timeout/timeout.component";
+import { OneVersusOneComponent } from "../../components/combat/1v1/1v1.component";
 
 @Component({
   selector: "app-match-overlay",
@@ -30,6 +31,7 @@ import { TimeoutComponent } from "../../components/common/timeout/timeout.compon
     PlayercamsComponent,
     EndroundBannerComponent,
     TimeoutComponent,
+    OneVersusOneComponent,
   ],
   templateUrl: "./match-overlay.component.html",
   styleUrl: "./match-overlay.component.css",

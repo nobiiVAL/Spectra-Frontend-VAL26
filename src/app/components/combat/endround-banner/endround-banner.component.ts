@@ -70,8 +70,8 @@ export class EndroundBannerComponent {
 
   teamWonSide = computed(() => {
     return this.dataModel.match().attackersWon 
-      ? TranslateKeys.Endround_Attacker 
-      : TranslateKeys.Endround_Defender;
+      ? "ATK" 
+      : "DEF";
   });
 
   teamWonLogoUrl = computed(() => {

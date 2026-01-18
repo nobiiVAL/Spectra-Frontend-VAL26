@@ -1,0 +1,108 @@
+/* 1v1 Component Styles */
+
+/* Player at index 0 (first/top position) stays in place */
+.animate-1v1-stay {
+    /* Card is already in position - minimal fade for consistency */
+    animation: none;
+}
+
+/* Each slot is approximately vh-82 (card height) + gap-6 (1.5rem/24px) apart */
+/* We calculate the offset as: index * (82/1080 * 100vh + 24px) */
+/* Simplified: each slot is roughly 100px apart at 1080p */
+
+/* Player at index 1 - one slot down from top */
+.animate-1v1-from-slot-1 {
+    animation: slide-from-slot-1 0.22s ease-in-out forwards;
+}
+
+@keyframes slide-from-slot-1 {
+    from {
+        transform: translateY(calc((82 / 1080) * 100vh + 1.5rem));
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Player at index 2 - two slots down from top */
+.animate-1v1-from-slot-2 {
+    animation: slide-from-slot-2 0.22s ease-in-out forwards;
+}
+
+@keyframes slide-from-slot-2 {
+    from {
+        transform: translateY(calc(2 * ((82 / 1080) * 100vh + 1.5rem)));
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Player at index 3 - three slots down from top */
+.animate-1v1-from-slot-3 {
+    animation: slide-from-slot-3 0.22s ease-in-out forwards;
+}
+
+@keyframes slide-from-slot-3 {
+    from {
+        transform: translateY(calc(3 * ((82 / 1080) * 100vh + 1.5rem)));
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Player at index 4 - four slots down from top (bottom) */
+.animate-1v1-from-slot-4 {
+    animation: slide-from-slot-4 0.22s ease-in-out forwards;
+}
+
+@keyframes slide-from-slot-4 {
+    from {
+        transform: translateY(calc(4 * ((82 / 1080) * 100vh + 1.5rem)));
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Left playercam slides in from left */
+.playercam-container-left {
+    animation: slide-in-playercam-left 0.2s ease-in-out 0.22s both;
+}
+
+@keyframes slide-in-playercam-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Right playercam slides in from right */
+.playercam-container-right {
+    animation: slide-in-playercam-right 0.2s ease-in-out 0.22s both;
+}
+
+@keyframes slide-in-playercam-right {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Team accent styling */
+.team-accent.attacker {
+    background-color: var(--color-attacker-primary);
+}
+
+.team-accent.defender {
+    background-color: var(--color-defender-primary);
+}

@@ -82,7 +82,13 @@ export class TestingComponent implements OnInit {
           customTextEnabled: true,
           spectraWatermark: true,
         },
-        playercamsInfo: { enable: true, enabledPlayers: ["Voodoo One#DEBUG"] },
+        playercamsInfo: { 
+        enable: true,
+        enabledPlayers: ["FNC OO AA EE#1337", "nobii#DEBUG"],
+        identifier: "SPPCXVBJZE",
+        secret: "MH20uCY3",
+        removeTricodes: false,
+      },
         nameOverrides: { overrides: nameOverrideMap },
       },
       timeoutState: {
@@ -95,8 +101,8 @@ export class TestingComponent implements OnInit {
         {
           players: [
             {
-              name: "Voodoo One",
-              fullName: "Voodoo One#DEBUG",
+              name: "FNC OO AA EE",
+              fullName: "FNC OO AA EE#1337",
               playerId: 0,
               isAlive: true,
               agentInternal: "Stealth",
@@ -307,8 +313,8 @@ export class TestingComponent implements OnInit {
         {
           players: [
             {
-              name: "AlpacaHoarder",
-              fullName: "AlpcacaHoarder#DEBUG",
+              name: "nobii",
+              fullName: "nobii#DEBUG",
               playerId: 0,
               isAlive: true,
               agentInternal: "Grenadier",
