@@ -1,79 +1,85 @@
 @if(dataModel.match().roundPhase === "shopping") {
-<div class="vw-900 vh-130 relative overflow-hidden" [class.hidden]="hide">
-  <div
-    class="absolute top-0 left-0 flex w-full items-center justify-center"
-    [class.toast-in]="inAnimation"
-    [class.toast-out]="outAnimation"
-  >
+  <div class="vw-900 vh-130 relative overflow-hidden" [class.hidden]="hide">
     <div
-      class="vh-130 relative flex items-center"
-      [class.card-expand]="cardExpanding"
-      [class.card-collapse]="cardCollapsing"
+      class="absolute top-0 left-0 flex w-full items-center justify-center"
+      [class.toast-in]="inAnimation"
+      [class.toast-out]="outAnimation"
     >
-      <div class="absolute left-1/2 -translate-x-1/2">
-        <svg
-          id="Accent"
-          xmlns="http://www.w3.org/2000/svg"
-          width="900"
-          height="130.005"
-          viewBox="0 0 900 130.005"
-        >
-          <path
-            id="Path_150"
-            data-name="Path 150"
-            d="M9773,253v5l3,3h5v2h-6l-4-4v-6Z"
-            transform="translate(-9771 -132.996)"
-            fill="#ae2a2a"
-          />
-          <path
-            id="Path_151"
-            data-name="Path 151"
-            d="M2,0V5L5,8h5v2H4L0,6V0Z"
-            transform="translate(10 0) rotate(90)"
-            fill="#ae2a2a"
-          />
-          <path
-            id="Path_152"
-            data-name="Path 152"
-            d="M2,0V5L5,8h5v2H4L0,6V0Z"
-            transform="translate(900 10) rotate(180)"
-            fill="#ae2a2a"
-          />
-          <path
-            id="Path_153"
-            data-name="Path 153"
-            d="M2,0V5L5,8h5v2H4L0,6V0Z"
-            transform="translate(890 130.005) rotate(-90)"
-            fill="#ae2a2a"
-          />
-        </svg>
-      </div>
-      <div class="flex h-27.5 w-215 flex-row gap-6 rounded-[0.4375rem] bg-black/60">
-        <div
-          class="flex w-27.5 shrink-0 items-center justify-center rounded-s-[0.4375rem] bg-[#1F1F1F]"
-        >
-          <img
-            [src]="toastInfo().selectedTeam === 'left' ? dataModel.teams()[0].teamUrl : dataModel.teams()[1].teamUrl"
-            class="vw-60 h-auto object-contain"
-          />
+      <div
+        class="vh-130 relative flex items-center"
+        [class.card-expand]="cardExpanding"
+        [class.card-collapse]="cardCollapsing"
+      >
+        <div class="absolute left-1/2 -translate-x-1/2">
+          <svg
+            id="Accent"
+            xmlns="http://www.w3.org/2000/svg"
+            width="900"
+            height="130.005"
+            viewBox="0 0 900 130.005"
+          >
+            <path
+              id="Path_150"
+              data-name="Path 150"
+              d="M9773,253v5l3,3h5v2h-6l-4-4v-6Z"
+              transform="translate(-9771 -132.996)"
+              fill="#ae2a2a"
+            />
+            <path
+              id="Path_151"
+              data-name="Path 151"
+              d="M2,0V5L5,8h5v2H4L0,6V0Z"
+              transform="translate(10 0) rotate(90)"
+              fill="#ae2a2a"
+            />
+            <path
+              id="Path_152"
+              data-name="Path 152"
+              d="M2,0V5L5,8h5v2H4L0,6V0Z"
+              transform="translate(900 10) rotate(180)"
+              fill="#ae2a2a"
+            />
+            <path
+              id="Path_153"
+              data-name="Path 153"
+              d="M2,0V5L5,8h5v2H4L0,6V0Z"
+              transform="translate(890 130.005) rotate(-90)"
+              fill="#ae2a2a"
+            />
+          </svg>
         </div>
-        <div class="flex items-center justify-center overflow-hidden">
+        <div class="flex h-27.5 w-215 flex-row gap-6 rounded-[0.4375rem] bg-black/60">
+          @if (toastInfo().selectedTeam !== "none") {
+            <div
+              class="flex w-27.5 shrink-0 items-center justify-center rounded-s-[0.4375rem] bg-[#1F1F1F]"
+            >
+              <img
+                [src]="toastInfo().selectedTeam === 'left' ? dataModel.teams()[0].teamUrl : dataModel.teams()[1].teamUrl"
+                class="vw-60 h-auto object-contain"
+              />
+            </div>
+          } @else {
+            <div></div>
+          }
+          <div class="flex items-center justify-center overflow-hidden">
           <span
             class="font-replica flex h-7/10 items-center justify-start text-2xl text-white"
-            [class]="toastInfo().eventLogoEnabled ? 'w-147.5' : 'w-174'"
+            [class]="toastInfo().selectedTeam === 'none' ? toastInfo().eventLogoEnabled ? 'w-175.5' : 'w-201.5' : toastInfo().eventLogoEnabled ? 'w-147.5' : 'w-174'"
           >
             {{ toastInfo().message }}
           </span>
+          </div>
+          @if (toastInfo().eventLogoEnabled) {
+            <div
+              class="flex w-27.5 shrink-0 items-center justify-center rounded-e-[0.4375rem] bg-[#161616]"
+            >
+              <img [src]="tournamentIconUrl()" class="vw-60 h-auto object-contain" />
+            </div>
+          } @else {
+            <div></div>
+          }
         </div>
-        @if (toastInfo().eventLogoEnabled) {
-        <div
-          class="flex w-27.5 shrink-0 items-center justify-center rounded-e-[0.4375rem] bg-[#161616]"
-        >
-          <img [src]="tournamentIconUrl()" class="vw-60 h-auto object-contain" />
-        </div>
-        }
       </div>
     </div>
   </div>
-</div>
 }
