@@ -80,10 +80,11 @@
     </div>
     <div class="relative h-88/100 overflow-hidden rounded-[5px] items-center mt-3">
       <img class="h-full w-full object-cover" src="assets/maps/tall/{{dataModel.match().map}}.webp" />
-      <span class="absolute top-4 left-1/2 -translate-x-1/2 text-xl text-center text-white font-dinnext-medium uppercase">{{ dataModel.match().map }}</span>
+      <div class="absolute inset-0 h-4/10 bg-gradient-to-b from-[#0D131DCC] to-transparent"></div>
+      <span class="absolute top-3 left-1/2 -translate-x-1/2 text-xl text-center text-white font-dinnext-medium uppercase">{{ dataModel.match().map }}</span>
       <div class="absolute inset-0 bg-gradient-to-t from-[#0D131D] to-transparent"></div>
       <img class="absolute bottom-4 left-1/2 -translate-x-1/2 h-6" src="{{dataModel.match().tools.tournamentInfo.logoUrl}}" />
-      <div class="absolute inset-0 bg-[#BA4141]"
+      <div class="absolute inset-0 bg-[#BtailwA4141]"
       [class.mapCover]="mapCover"
       ></div>
     </div>
