@@ -28,24 +28,8 @@
   src: url("/assets/fonts/FoundryGridnikW03/FoundryGridnikW03-ExtraBold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DIN Condensed Regular";
-  src: url("/assets/fonts/DINCondensed/DIN-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "DIN Condensed Medium";
-  src: url("/assets/fonts/DINCondensed/DIN-Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "DIN Condensed Light";
-  src: url("/assets/fonts/DINCondensed/DIN-Light.ttf") format("truetype");
-}
-@font-face {
-  font-family: "DIN Condensed Bold";
-  src: url("/assets/fonts/DINCondensed/DIN-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "DIN Condensed Black Alternate";
-  src: url("/assets/fonts/DINCondensed/DIN-BlackAlternate.ttf") format("truetype");
+  font-family: "DIN Condensed";
+  src: url("/assets/fonts/DINCondensed/din-condensed-vf.otf") format("opentype");
 }
 @font-face {
   font-family: "Replica";
@@ -105,20 +89,17 @@
 @utility font-dinnext-bold {
   font-family: "DIN Next W1G Bold", Helvetica;
 }
-@utility font-dincondensed-regular {
-  font-family: "DIN Condensed Regular", Helvetica;
-}
-@utility font-dincondensed-medium {
-  font-family: "DIN Condensed Medium", Helvetica;
-}
 @utility font-dincondensed-light {
-  font-family: "DIN Condensed Light", Helvetica;
+  font-family: "DIN Condensed", Helvetica;
+  font-weight: 300;
+}
+@utility font-dincondensed-regular {
+  font-family: "DIN Condensed", Helvetica;
+  font-weight: 400;
 }
 @utility font-dincondensed-bold {
-  font-family: "DIN Condensed Bold", Helvetica;
-}
-@utility font-dincondensed-blackalt {
-  font-family: "DIN Condensed Black Alternate", Helvetica;
+  font-family: "DIN Condensed", Helvetica;
+  font-weight: 600;
 }
 @utility font-foundry-bold {
   font-family: "Foundry Gridnik W03 Bold", Helvetica;

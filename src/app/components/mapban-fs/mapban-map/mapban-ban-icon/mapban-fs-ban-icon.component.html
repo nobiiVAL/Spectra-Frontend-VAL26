@@ -1,5 +1,12 @@
 <div class="w-75 h-full overflow-hidden relative">
-  <img [src]="'assets/maps/wide/' + mapName + '.webp'" class="w-full h-full object-contain grayscale scale-200"/>
+  <svg class="absolute w-0 h-0" aria-hidden="true">
+    <defs>
+      <filter id="ban-grayscale">
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+    </defs>
+  </svg>
+  <img [src]="'assets/maps/wide/' + mapName + '.webp'" class="w-full h-full object-contain scale-200" style="filter: url(#ban-grayscale)"/>
   <div class="bg-gradient-to-b from-red-500/50 to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
   <div class="flex flex-col gap-1 text-white uppercase z-1 left-4 top-1/2 -translate-y-1/2 absolute">
     <span class="text-2xl font-replica">{{ tricode }} BAN</span>

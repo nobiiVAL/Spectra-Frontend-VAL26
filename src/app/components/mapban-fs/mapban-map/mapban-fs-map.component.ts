@@ -70,6 +70,8 @@ export class MapbanMapComponent {
         }
 
   get defTeamTricode(): string {
-    return this.teams[!this.pickedAttack ? 0 : 1].tricode;
+    const picker = this.sidePickedBy ?? 0;
+    const defIndex = this.pickedAttack ? 1 - picker : picker;
+    return this.teams[defIndex].tricode;
   }
 }
