@@ -490,4 +490,16 @@
       />
     </div>
   }
+  
+  <!-- Money for alive players (absolute inner corners of the whole card) -->
+  @if (player.isAlive && !dataModel.hideAuxiliary()) {
+    <div
+      class="font-foundry-bold absolute -bottom-2 z-50 flex flex-row items-center gap-0.5 text-white"
+      [class]="right() ? '-left-2' : '-right-2'"
+      [class.flex-row-reverse]="!right()"
+    >
+      <img class="vw-15 vh-15 -translate-y-[0.08rem]" src="assets/misc/ValorantCreditsWhite.svg" />
+      <p class="text-[1.2em] leading-none mb-[0.1rem]">{{ formatNumber(player.money) }}</p>
+    </div>
+  }
 </div>
