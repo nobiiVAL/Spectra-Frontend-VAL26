@@ -1,0 +1,22 @@
+.testing-controls {
+  position: absolute;
+  top: 32rem;
+  left: 50%;
+  z-index: 10;
+  display: flex;
+  gap: 0.25rem;
+  transform: translateX(-50%);
+}
+
+button {
+  box-sizing: border-box;
+  max-height: 28px;
+  border: 2px groove gray;
+  background-color: #0f1923d9;
+  padding: 4px;
+  color: white;
+  cursor: pointer;
+  font-family: Montserrat, Helvetica;
+  font-size: 13.333px;
+  line-height: normal;
+}

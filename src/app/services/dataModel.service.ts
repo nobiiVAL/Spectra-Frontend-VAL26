@@ -23,6 +23,8 @@ export class DataModelService {
       console.log("Setting language to", paramLang);
       this.language.set(i18nHelper.resolveLanguageAlias(paramLang));
       this.translate.use(this.language());
+      // drives the :lang() selectors in styles.css that pick the Noto Sans variant
+      document.documentElement.lang = this.language().replace("_", "-");
       this.hideAuxiliary.set(params["hideAuxiliary"] === "true");
       this.hideAuxiliaryText.set(params["hideAuxiliaryText"] === "true");
     });
@@ -209,7 +211,15 @@ export const initialMatchData: IMatchData = {
       customTextEnabled: false,
       customText: "",
     },
-    playercamsInfo: { enable: false },
+    playercamsInfo: { 
+      enable: false,
+      removeTricodes: false,
+      identifier: "",
+      secret: "",
+      endTime: 0,
+      enabledPlayers: [],
+      listenIn: false, 
+    },
     nameOverrides: { overrides: [] },
     roundWinBox: {
       type: "disabled",

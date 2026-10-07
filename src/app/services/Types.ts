@@ -149,14 +149,17 @@ export interface IWatermarkInfo {
   customText: string;
 }
 
-export interface IPlayercamsInfo {
+export type IPlayercamsInfo = {
   enable: boolean;
-  removeTricodes?: boolean;
-  identifier?: string;
-  secret?: string;
-  endTime?: number;
-  enabledPlayers?: string[];
-}
+  removeTricodes: boolean;
+  identifier: string;
+  secret: string;
+  endTime: number;
+  enabledPlayers: string[];
+  listenIn: IPlayercamsListenIn;
+};
+
+export type IPlayercamsListenIn = false | "left" | "right";
 
 export interface INameOverrides {
   overrides: string[];

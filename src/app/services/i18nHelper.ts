@@ -1,11 +1,15 @@
 export class i18nHelper {
+  // Keys are lowercase because the lang param is lowercased before lookup; values match the file names in public/langs
   static LanguageAliases: Record<string, string> = {
     jp: "ja",
-    zh_CN: "zh_HANS",
+    zh_cn: "zh_HANS",
+    zh_hans: "zh_HANS",
+    zh_tw: "zh_HANT",
+    zh_hant: "zh_HANT",
   };
 
   public static resolveLanguageAlias(alias: string) {
-    return this.LanguageAliases[alias] || alias;
+    return this.LanguageAliases[alias.toLowerCase()] || alias;
   }
 }
 
@@ -54,4 +58,5 @@ export enum TranslateKeys {
   Breakdown_TradeSuccessRate5s = "breakdown.trade_success_rate_5s",
   Breakdown_Win = "breakdown.win",
   Breakdown_Loss = "breakdown.loss",
+  ListenIn_LiveComms = "listenin.livecomms",
 }

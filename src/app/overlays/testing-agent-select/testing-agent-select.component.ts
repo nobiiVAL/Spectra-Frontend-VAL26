@@ -84,6 +84,12 @@ export class TestingAgentSelectComponent implements OnInit, OnDestroy {
         },
         playercamsInfo: {
           enable: false,
+          enabledPlayers: [],
+          removeTricodes: false,
+          identifier: "SPPCEDVACI",
+          secret: "f5bE6fYn",
+          endTime: 0,
+          listenIn: false,
         },
         nameOverrides: {
           overrides: [],

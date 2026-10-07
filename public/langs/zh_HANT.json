@@ -24,5 +24,6 @@
   "scoreboard.deaths": "死亡",
   "scoreboard.assists": "助攻",
   "timeout.technical_pause": "技術暫停",
-  "timeout.tactical_timeout": "暫停"
+  "timeout.tactical_timeout": "暫停",
+  "listenin.livecomms": "直播對話"
 }

@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from "@angular/core";
 import { MatchOverlayComponent } from "../match-overlay/match-overlay.component";
 import { DataModelService, initialMatchData } from "../../services/dataModel.service";
 import { IMatchData } from "../../services/Types";
-import { LiveToastComponent } from "../toast-overlay/toast-component";
+import { LiveToastComponent } from "../toast-overlay/toast.component";
 import { PlayercamsAltComponent } from "../../components/combat/playercams-alt/playercams-alt.component";
 
 @Component({
@@ -90,7 +90,9 @@ export class TestingComponent implements OnInit {
           enabledPlayers: ["MrFoxy#DEBUG", "TTV RedStone201#DEBUG"],
           removeTricodes: false,
           identifier: "SPPCEDVACI",
-          secret: "f5bE6fYn", 
+          secret: "f5bE6fYn",
+          endTime: 0,
+          listenIn: false,
         },
         nameOverrides: { overrides: [] },
         roundWinBox: {

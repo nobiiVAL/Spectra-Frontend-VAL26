@@ -1,0 +1,29 @@
+@keyframes enter {
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes exit {
+    from {
+        clip-path: inset(0 0 0 0);
+    }
+    to {
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+.listen-in-reveal {
+  clip-path: inset(100% 0 0 0);
+}
+
+.listen-in-reveal.revealed {
+  animation: enter 333ms 400ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.listen-in-exit {
+  animation: exit 333ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
