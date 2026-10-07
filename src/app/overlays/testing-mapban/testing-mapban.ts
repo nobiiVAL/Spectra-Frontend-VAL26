@@ -179,9 +179,7 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
       // Hold then loop
       {
         delay: 5000,
-        action: () => {
-          ("");
-        },
+        action: () => undefined,
       },
     ];
   }
