@@ -1,19 +1,19 @@
 @keyframes enter {
-    from {
-        clip-path: inset(100% 0 0 0);
-    }
-    to {
-        clip-path: inset(0 0 0 0);
-    }
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @keyframes exit {
-    from {
-        clip-path: inset(0 0 0 0);
-    }
-    to {
-        clip-path: inset(100% 0 0 0);
-    }
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(100% 0 0 0);
+  }
 }
 
 .listen-in-reveal {

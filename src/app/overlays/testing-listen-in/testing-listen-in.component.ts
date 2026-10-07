@@ -26,7 +26,9 @@ class MockPlayercamStreamService extends PlayercamStreamService {
         <style>@keyframes g{to{background-position:100% 100%}}@keyframes p{50%{opacity:.2}}</style>
         <div style="position:absolute;top:6px;left:8px;font-size:12px;animation:p 1s infinite">● MOCK LIVE</div>
         <div style="display:flex;height:100vh;align-items:center;justify-content:center;font-size:7vw;font-weight:bold">${name}</div>
-        ${audio ? `<script>
+        ${
+          audio
+            ? `<script>
           // simulate VDO.Ninja &getloudness pushes: alternating talking / silent periods
           const phase = Math.random() * 4000;
           // simulate a staggered connection time per feed
@@ -37,7 +39,9 @@ class MockPlayercamStreamService extends PlayercamStreamService {
               parent.postMessage({ action: "loudness", mode: "update", loudness: { mock: talking ? 20 + Math.random() * 40 : Math.random() * 3 } }, "*");
             }, 100);
           }, 500 + Math.random() * 2500);
-        </script>` : ""}</body>`;
+        </script>`
+            : ""
+        }</body>`;
       url = this.mockSanitizer.bypassSecurityTrustResourceUrl(
         "data:text/html;charset=utf-8," + encodeURIComponent(html),
       );

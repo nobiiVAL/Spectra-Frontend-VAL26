@@ -211,14 +211,14 @@ export const initialMatchData: IMatchData = {
       customTextEnabled: false,
       customText: "",
     },
-    playercamsInfo: { 
+    playercamsInfo: {
       enable: false,
       removeTricodes: false,
       identifier: "",
       secret: "",
       endTime: 0,
       enabledPlayers: [],
-      listenIn: false, 
+      listenIn: false,
     },
     nameOverrides: { overrides: [] },
     roundWinBox: {

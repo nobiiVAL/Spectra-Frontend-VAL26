@@ -1,39 +1,53 @@
- 
-<div class="relative h-full w-full overflow-hidden flex flex-col">
-    <div class="relative h-full w-full overflow-hidden">
-        <img [src]="'assets/maps/wide/' + displayMapName + '.webp'" class="h-full w-full object-cover animate-map-in" />
-        <div class="absolute inset-0 bg-black/25"></div>
-        <div
-            class="absolute inset-0 flex flex-col items-center justify-center text-white text-center"
-            [class.animate-past-map]="hasScore"
-        >
-            @if (hasScore) {
-                <div class="absolute inset-0 bg-black/70 z-0"></div>
-                <div class="relative z-10 flex flex-col items-center gap-10">
-                    <p class="font-replica text-3xl uppercase">WINNER</p>
-                    @if (winnerIndex !== undefined) {
-                        <img class="w-37.5 h-37.5 object-contain" [src]="teams[winnerIndex].url" />
-                    }
-                    <p class="font-foundry-extrabold text-6xl">
-                        {{ winnerFirstScoreText }}
-                    </p>
-                </div>
-            }
+<div class="relative flex h-full w-full flex-col overflow-hidden">
+  <div class="relative h-full w-full overflow-hidden">
+    <img
+      [src]="'assets/maps/wide/' + displayMapName + '.webp'"
+      class="animate-map-in h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/25"></div>
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
+      [class.animate-past-map]="hasScore"
+    >
+      @if (hasScore) {
+        <div class="absolute inset-0 z-0 bg-black/70"></div>
+        <div class="relative z-10 flex flex-col items-center gap-10">
+          <p class="font-replica text-3xl uppercase">WINNER</p>
+          @if (winnerIndex !== undefined) {
+            <img class="h-37.5 w-37.5 object-contain" [src]="teams[winnerIndex].url" />
+          }
+          <p class="font-foundry-extrabold text-6xl">
+            {{ winnerFirstScoreText }}
+          </p>
         </div>
+      }
     </div>
-    <div class="h-30.5 text-white flex flex-col justify-center gap-1.25" [style.margin-left]="detailsMarginLeft">
-        <div class="flex flex-row gap-12 items-center">
-            <span class="font-replica text-2xl animate-text-in-1">DEF</span>
-            <span class="font-foundry-extrabold text-4xl text-postmatch-secondary uppercase animate-text-in-2">{{ defTeamTricode }}</span>
-        </div>
-        <div class="bg-white h-0.25 w-9/10"></div>
-        <div class="flex flex-row gap-6 items-center">
-            <span class="font-replica text-2xl animate-text-in-1">PICKS</span>
-            @if(pickedBy !== undefined) {
-                <span class="font-foundry-extrabold text-4xl text-postmatch-secondary uppercase animate-text-in-2">{{ pickedBy !== undefined ? teams[pickedBy].tricode : "" }}</span>
-            } @else {
-                <span class="font-foundry-extrabold text-4xl text-postmatch-secondary uppercase animate-text-in-2">DECIDER</span>
-            }
-        </div>
-	</div>
+  </div>
+  <div
+    class="flex h-30.5 flex-col justify-center gap-1.25 text-white"
+    [style.margin-left]="detailsMarginLeft"
+  >
+    <div class="flex flex-row items-center gap-12">
+      <span class="font-replica animate-text-in-1 text-2xl">DEF</span>
+      <span
+        class="font-foundry-extrabold text-postmatch-secondary animate-text-in-2 text-4xl uppercase"
+        >{{ defTeamTricode }}</span
+      >
+    </div>
+    <div class="h-0.25 w-9/10 bg-white"></div>
+    <div class="flex flex-row items-center gap-6">
+      <span class="font-replica animate-text-in-1 text-2xl">PICKS</span>
+      @if (pickedBy !== undefined) {
+        <span
+          class="font-foundry-extrabold text-postmatch-secondary animate-text-in-2 text-4xl uppercase"
+          >{{ pickedBy !== undefined ? teams[pickedBy].tricode : "" }}</span
+        >
+      } @else {
+        <span
+          class="font-foundry-extrabold text-postmatch-secondary animate-text-in-2 text-4xl uppercase"
+          >DECIDER</span
+        >
+      }
+    </div>
+  </div>
 </div>

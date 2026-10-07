@@ -1,280 +1,292 @@
 @if (leftTeam?.tricode && rightTeam?.tricode) {
-<div class="flex h-screen w-screen flex-row">
-  @if (!hideBg) {
-  <img class="absolute -z-10" src="/assets/maps/wide/{{statsData?.metadata?.map?.name}}.webp" />
-  }
-  <!-- LEFT TEAM -->
-  <div
-    class="relative my-4.5 ml-10 grid h-97/100 w-[740px] grid-cols-[740px] grid-rows-[220px_10px_160px_160px_10px_485px]"
-  >
-    <!-- Team Info -->
-    <div
-      class="row-span-1 rounded-tl-lg backdrop-blur-2xl backdrop-brightness-40"
-      [class]="hideBg ? 'bg-black/90' : 'bg-black/10'"
-    >
-      <div class="flex h-full w-full flex-row items-center">
-        <img class="h-3/4 w-1/6 object-contain p-8" src="{{leftTeam?.url}}" />
-        <div class="flex h-1/2 w-2/6 flex-col justify-around">
-          <span class="font-replica ml-2 text-6xl text-white uppercase">{{leftTeam?.tricode}}</span>
-          <span class="font-replica text-postmatch-secondary ml-2 text-3xl uppercase"
-            >{{ (leftTeam?.won ? TranslateKeys.Breakdown_Win : TranslateKeys.Breakdown_Loss) |
-            translate }}</span
-          >
-        </div>
-        <div class="w-2/6"></div>
-        <div class="font-foundry-extrabold w-1/6 pr-6 text-center text-[108px] text-white">
-          {{leftTeam?.rounds?.won}}
-        </div>
-      </div>
-    </div>
-    <!-- Spacer -->
-    <div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="1840"
-        height="10"
-        viewBox="0 0 1840 10"
-      >
-        <defs>
-          <clipPath id="clip-path">
-            <rect
-              id="Rectangle_134"
-              data-name="Rectangle 134"
-              width="1840"
-              height="10"
-              transform="translate(40 238)"
-              fill="none"
-            />
-          </clipPath>
-          <pattern
-            id="pattern"
-            preserveAspectRatio="none"
-            width="100%"
-            height="100%"
-            viewBox="0 0 6701 2244"
-          >
-            <image width="6701" height="2244" xlink:href="assets/breakdown/accentTexture.webp" />
-          </pattern>
-        </defs>
-        <g
-          id="Line_Accent_1"
-          data-name="Line Accent 1"
-          transform="translate(-40 -238)"
-          clip-path="url(#clip-path)"
-        >
-          <rect
-            id="Rectangle_133"
-            data-name="Rectangle 133"
-            width="1840"
-            height="10"
-            transform="translate(40 238)"
-            fill="var(--color-postmatch-primary)"
-          />
-          <!-- Accent fill -->
-          <rect
-            id="_3511f4ab-b25b-44d2-939b-c9228ad71e7b"
-            data-name="3511f4ab-b25b-44d2-939b-c9228ad71e7b"
-            width="1850"
-            height="620"
-            transform="translate(35 217)"
-            fill="url(#pattern)"
-            style="mix-blend-mode: darken; isolation: isolate"
-          />
-        </g>
-      </svg>
-    </div>
-    <!-- MVP -->
-    <div
-      class="absolute -z-10 mt-[230px] h-[320px] w-[740px] backdrop-blur-xl backdrop-brightness-90"
-      [class]="hideBg ? 'bg-black/70' : 'bg-black/30'"
-    ></div>
-    <app-mvp-player
-      [player]="leftPlayers![0]"
-      class="row-span-2 bg-linear-to-t from-black to-black/0"
-    ></app-mvp-player>
-    <!-- Spacer -->
-    <div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="1840"
-        height="10"
-        viewBox="0 0 1840 10"
-      >
-        <defs>
-          <clipPath id="clip-path">
-            <rect
-              id="Rectangle_136"
-              data-name="Rectangle 136"
-              width="1840"
-              height="10"
-              transform="translate(40 238)"
-              fill="none"
-            />
-          </clipPath>
-          <pattern
-            id="pattern"
-            preserveAspectRatio="none"
-            width="100%"
-            height="100%"
-            viewBox="0 0 6701 2244"
-          >
-            <image width="6701" height="2244" xlink:href="assets/breakdown/accentTexture.webp" />
-          </pattern>
-        </defs>
-        <g
-          id="Line_Accent_2"
-          data-name="Line Accent 2"
-          transform="translate(-40 -238)"
-          clip-path="url(#clip-path)"
-        >
-          <rect
-            id="Rectangle_135"
-            data-name="Rectangle 135"
-            width="1840"
-            height="10"
-            transform="translate(40 238)"
-            fill="var(--color-postmatch-primary)"
-          />
-          <rect
-            id="_3511f4ab-b25b-44d2-939b-c9228ad71e7b"
-            data-name="3511f4ab-b25b-44d2-939b-c9228ad71e7b"
-            width="1850"
-            height="620"
-            transform="translate(35 -355)"
-            fill="url(#pattern)"
-            style="mix-blend-mode: multiply; isolation: isolate"
-          />
-        </g>
-      </svg>
-    </div>
-    <div class="flex h-[485px] flex-row">
-      <!-- Map area -->
-      <div class="relative h-[485px] w-[295px] overflow-hidden rounded-bl-lg">
-        <img
-          class="absolute h-full w-full object-cover"
-          src="/assets/maps/tall/{{statsData?.metadata?.map?.name}}.webp"
-        />
-        <div
-          class="bg-postmatch-primary absolute bottom-0 left-0 flex h-14 w-57.5 items-center justify-center rounded-tr-lg"
-        >
-          <span class="font-replica text-3xl text-white uppercase"
-            >{{statsData?.metadata?.map?.name}}</span
-          >
-        </div>
-      </div>
-      <!-- Regular player cards -->
-      <div class="flex w-[445px] flex-col">
-        @for (i of numSequence(leftPlayers?.length || 0); track $index) { @if ($index > 0) {
-        <app-regular-player
-          class="h-[121px] w-full bg-black"
-          [player]="leftPlayers![$index]"
-        ></app-regular-player>
-        } }
-        <div class="bg-postmatch-primary absolute bottom-1 z-2 h-0.5 w-312.5"></div>
-        <div class="bg-postmatch-primary absolute bottom-31 z-2 h-0.5 w-312.5"></div>
-        <div class="bg-postmatch-primary absolute bottom-61.5 z-2 h-0.5 w-312.5"></div>
-        <div class="bg-postmatch-primary absolute bottom-91.5 z-2 h-0.5 w-312.5"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Middle Info Panel -->
-  <div class="z-1 my-4.5 flex w-90 flex-col gap-2.5">
-    <div
-      class="flex h-55 items-center backdrop-blur-2xl backdrop-brightness-70"
-      [class]="hideBg ? 'bg-black/80' : 'bg-black/30'"
-    >
+  <div class="flex h-screen w-screen flex-row">
+    @if (!hideBg) {
       <img
-        class="h-36 w-full object-contain"
-        [src]="dataModel.tournamentInfo().logoUrl || 'assets/misc/icon.webp'"
+        class="absolute -z-10"
+        src="/assets/maps/wide/{{ statsData?.metadata?.map?.name }}.webp"
       />
-    </div>
-    <div class="flex h-203.5 flex-col items-center bg-[#161616] text-center">
+    }
+    <!-- LEFT TEAM -->
+    <div
+      class="relative my-4.5 ml-10 grid h-97/100 w-[740px] grid-cols-[740px] grid-rows-[220px_10px_160px_160px_10px_485px]"
+    >
+      <!-- Team Info -->
       <div
-        class="font-replica my-14 flex flex-col items-center justify-center gap-10 text-center text-[1.75rem] text-white uppercase"
+        class="row-span-1 rounded-tl-lg backdrop-blur-2xl backdrop-brightness-40"
+        [class]="hideBg ? 'bg-black/90' : 'bg-black/10'"
       >
-        <span>KDA</span>
-        <span>ACS</span>
-        <span>First Kills</span>
+        <div class="flex h-full w-full flex-row items-center">
+          <img class="h-3/4 w-1/6 object-contain p-8" src="{{ leftTeam?.url }}" />
+          <div class="flex h-1/2 w-2/6 flex-col justify-around">
+            <span class="font-replica ml-2 text-6xl text-white uppercase">{{
+              leftTeam?.tricode
+            }}</span>
+            <span class="font-replica text-postmatch-secondary ml-2 text-3xl uppercase">{{
+              (leftTeam?.won ? TranslateKeys.Breakdown_Win : TranslateKeys.Breakdown_Loss)
+                | translate
+            }}</span>
+          </div>
+          <div class="w-2/6"></div>
+          <div class="font-foundry-extrabold w-1/6 pr-6 text-center text-[108px] text-white">
+            {{ leftTeam?.rounds?.won }}
+          </div>
+        </div>
       </div>
-      <div class="mt-8.5 flex flex-col items-center gap-10.5 text-center">
-        @for (i of numSequence(5); track $index) { @if ($index > 0) {
+      <!-- Spacer -->
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="1840"
+          height="10"
+          viewBox="0 0 1840 10"
+        >
+          <defs>
+            <clipPath id="clip-path">
+              <rect
+                id="Rectangle_134"
+                data-name="Rectangle 134"
+                width="1840"
+                height="10"
+                transform="translate(40 238)"
+                fill="none"
+              />
+            </clipPath>
+            <pattern
+              id="pattern"
+              preserveAspectRatio="none"
+              width="100%"
+              height="100%"
+              viewBox="0 0 6701 2244"
+            >
+              <image width="6701" height="2244" xlink:href="assets/breakdown/accentTexture.webp" />
+            </pattern>
+          </defs>
+          <g
+            id="Line_Accent_1"
+            data-name="Line Accent 1"
+            transform="translate(-40 -238)"
+            clip-path="url(#clip-path)"
+          >
+            <rect
+              id="Rectangle_133"
+              data-name="Rectangle 133"
+              width="1840"
+              height="10"
+              transform="translate(40 238)"
+              fill="var(--color-postmatch-primary)"
+            />
+            <!-- Accent fill -->
+            <rect
+              id="_3511f4ab-b25b-44d2-939b-c9228ad71e7b"
+              data-name="3511f4ab-b25b-44d2-939b-c9228ad71e7b"
+              width="1850"
+              height="620"
+              transform="translate(35 217)"
+              fill="url(#pattern)"
+              style="mix-blend-mode: darken; isolation: isolate"
+            />
+          </g>
+        </svg>
+      </div>
+      <!-- MVP -->
+      <div
+        class="absolute -z-10 mt-[230px] h-[320px] w-[740px] backdrop-blur-xl backdrop-brightness-90"
+        [class]="hideBg ? 'bg-black/70' : 'bg-black/30'"
+      ></div>
+      <app-mvp-player
+        [player]="leftPlayers![0]"
+        class="row-span-2 bg-linear-to-t from-black to-black/0"
+      ></app-mvp-player>
+      <!-- Spacer -->
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="1840"
+          height="10"
+          viewBox="0 0 1840 10"
+        >
+          <defs>
+            <clipPath id="clip-path">
+              <rect
+                id="Rectangle_136"
+                data-name="Rectangle 136"
+                width="1840"
+                height="10"
+                transform="translate(40 238)"
+                fill="none"
+              />
+            </clipPath>
+            <pattern
+              id="pattern"
+              preserveAspectRatio="none"
+              width="100%"
+              height="100%"
+              viewBox="0 0 6701 2244"
+            >
+              <image width="6701" height="2244" xlink:href="assets/breakdown/accentTexture.webp" />
+            </pattern>
+          </defs>
+          <g
+            id="Line_Accent_2"
+            data-name="Line Accent 2"
+            transform="translate(-40 -238)"
+            clip-path="url(#clip-path)"
+          >
+            <rect
+              id="Rectangle_135"
+              data-name="Rectangle 135"
+              width="1840"
+              height="10"
+              transform="translate(40 238)"
+              fill="var(--color-postmatch-primary)"
+            />
+            <rect
+              id="_3511f4ab-b25b-44d2-939b-c9228ad71e7b"
+              data-name="3511f4ab-b25b-44d2-939b-c9228ad71e7b"
+              width="1850"
+              height="620"
+              transform="translate(35 -355)"
+              fill="url(#pattern)"
+              style="mix-blend-mode: multiply; isolation: isolate"
+            />
+          </g>
+        </svg>
+      </div>
+      <div class="flex h-[485px] flex-row">
+        <!-- Map area -->
+        <div class="relative h-[485px] w-[295px] overflow-hidden rounded-bl-lg">
+          <img
+            class="absolute h-full w-full object-cover"
+            src="/assets/maps/tall/{{ statsData?.metadata?.map?.name }}.webp"
+          />
+          <div
+            class="bg-postmatch-primary absolute bottom-0 left-0 flex h-14 w-57.5 items-center justify-center rounded-tr-lg"
+          >
+            <span class="font-replica text-3xl text-white uppercase">{{
+              statsData?.metadata?.map?.name
+            }}</span>
+          </div>
+        </div>
+        <!-- Regular player cards -->
+        <div class="flex w-[445px] flex-col">
+          @for (i of numSequence(leftPlayers?.length || 0); track $index) {
+            @if ($index > 0) {
+              <app-regular-player
+                class="h-[121px] w-full bg-black"
+                [player]="leftPlayers![$index]"
+              ></app-regular-player>
+            }
+          }
+          <div class="bg-postmatch-primary absolute bottom-1 z-2 h-0.5 w-312.5"></div>
+          <div class="bg-postmatch-primary absolute bottom-31 z-2 h-0.5 w-312.5"></div>
+          <div class="bg-postmatch-primary absolute bottom-61.5 z-2 h-0.5 w-312.5"></div>
+          <div class="bg-postmatch-primary absolute bottom-91.5 z-2 h-0.5 w-312.5"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Middle Info Panel -->
+    <div class="z-1 my-4.5 flex w-90 flex-col gap-2.5">
+      <div
+        class="flex h-55 items-center backdrop-blur-2xl backdrop-brightness-70"
+        [class]="hideBg ? 'bg-black/80' : 'bg-black/30'"
+      >
+        <img
+          class="h-36 w-full object-contain"
+          [src]="dataModel.tournamentInfo().logoUrl || 'assets/misc/icon.webp'"
+        />
+      </div>
+      <div class="flex h-203.5 flex-col items-center bg-[#161616] text-center">
         <div
-          class="font-replica flex flex-col gap-3 text-center text-[1.375rem] text-white uppercase"
+          class="font-replica my-14 flex flex-col items-center justify-center gap-10 text-center text-[1.75rem] text-white uppercase"
         >
           <span>KDA</span>
           <span>ACS</span>
+          <span>First Kills</span>
         </div>
-        } }
+        <div class="mt-8.5 flex flex-col items-center gap-10.5 text-center">
+          @for (i of numSequence(5); track $index) {
+            @if ($index > 0) {
+              <div
+                class="font-replica flex flex-col gap-3 text-center text-[1.375rem] text-white uppercase"
+              >
+                <span>KDA</span>
+                <span>ACS</span>
+              </div>
+            }
+          }
+        </div>
       </div>
     </div>
-  </div>
-  <!-- RIGHT TEAM -->
-  <div
-    class="relative my-4.5 mr-10 grid h-97/100 w-[740px] grid-cols-[740px] grid-rows-[220px_10px_160px_160px_10px_485px]"
-  >
-    <!-- Team Info -->
+    <!-- RIGHT TEAM -->
     <div
-      class="row-span-1 rounded-tr-lg backdrop-blur-2xl backdrop-brightness-40"
-      [class]="hideBg ? 'bg-black/90' : 'bg-black/10'"
+      class="relative my-4.5 mr-10 grid h-97/100 w-[740px] grid-cols-[740px] grid-rows-[220px_10px_160px_160px_10px_485px]"
     >
-      <div class="flex h-full w-full flex-row items-center">
-        <div class="font-foundry-extrabold w-1/6 pl-6 text-center text-[108px] text-white">
-          {{rightTeam?.rounds?.won}}
-        </div>
-        <div class="w-2/6"></div>
-        <div class="flex h-1/2 w-2/6 flex-col items-end justify-around">
-          <span class="font-replica mr-2 text-6xl text-white uppercase"
-            >{{rightTeam?.tricode}}</span
-          >
-          <span class="font-replica text-postmatch-secondary mr-2 text-3xl uppercase"
-            >{{ (rightTeam?.won ? TranslateKeys.Breakdown_Win : TranslateKeys.Breakdown_Loss) |
-            translate }}</span
-          >
-        </div>
-        <img class="h-3/4 w-1/6 object-contain p-8" src="{{rightTeam?.url}}" />
-      </div>
-    </div>
-    <!-- Spacer -->
-    <div></div>
-    <!-- MVP -->
-    <div
-      class="absolute -z-10 mt-[230px] h-[320px] w-[740px] bg-black/30 backdrop-blur-xl backdrop-brightness-90"
-      [class]="hideBg ? 'bg-black/70' : 'bg-black/30'"
-    ></div>
-    <app-mvp-player
-      [player]="rightPlayers![0]"
-      [isRight]="true"
-      class="row-span-2 bg-linear-to-t from-black to-black/0"
-    ></app-mvp-player>
-    <!-- Spacer -->
-    <div></div>
-    <div class="flex h-[485px] flex-row">
-      <!-- Regular player cards -->
-      <div class="flex w-[445px] flex-col">
-        @for (i of numSequence(rightPlayers?.length || 0); track $index) { @if ($index > 0) {
-        <app-regular-player
-          class="h-[121px] w-full bg-black"
-          [player]="rightPlayers![$index]"
-          [isRight]="true"
-        ></app-regular-player>
-        } }
-      </div>
-      <!-- Sponsor area -->
+      <!-- Team Info -->
       <div
-        class="relative flex h-[485px] w-[295px] items-center justify-center overflow-hidden rounded-br-lg bg-[#111111]"
+        class="row-span-1 rounded-tr-lg backdrop-blur-2xl backdrop-brightness-40"
+        [class]="hideBg ? 'bg-black/90' : 'bg-black/10'"
       >
-        @if(dataModel.sponsorInfo().enabled) { @for (sponsor of dataModel.sponsorInfo().sponsors;
-        track $index) {
-        <img
-          class="sponsor-img absolute w-62 object-contain"
-          [class.active]="currentSponsorIndex() === $index"
-          [src]="sponsor"
-        />
-        } }
+        <div class="flex h-full w-full flex-row items-center">
+          <div class="font-foundry-extrabold w-1/6 pl-6 text-center text-[108px] text-white">
+            {{ rightTeam?.rounds?.won }}
+          </div>
+          <div class="w-2/6"></div>
+          <div class="flex h-1/2 w-2/6 flex-col items-end justify-around">
+            <span class="font-replica mr-2 text-6xl text-white uppercase">{{
+              rightTeam?.tricode
+            }}</span>
+            <span class="font-replica text-postmatch-secondary mr-2 text-3xl uppercase">{{
+              (rightTeam?.won ? TranslateKeys.Breakdown_Win : TranslateKeys.Breakdown_Loss)
+                | translate
+            }}</span>
+          </div>
+          <img class="h-3/4 w-1/6 object-contain p-8" src="{{ rightTeam?.url }}" />
+        </div>
+      </div>
+      <!-- Spacer -->
+      <div></div>
+      <!-- MVP -->
+      <div
+        class="absolute -z-10 mt-[230px] h-[320px] w-[740px] bg-black/30 backdrop-blur-xl backdrop-brightness-90"
+        [class]="hideBg ? 'bg-black/70' : 'bg-black/30'"
+      ></div>
+      <app-mvp-player
+        [player]="rightPlayers![0]"
+        [isRight]="true"
+        class="row-span-2 bg-linear-to-t from-black to-black/0"
+      ></app-mvp-player>
+      <!-- Spacer -->
+      <div></div>
+      <div class="flex h-[485px] flex-row">
+        <!-- Regular player cards -->
+        <div class="flex w-[445px] flex-col">
+          @for (i of numSequence(rightPlayers?.length || 0); track $index) {
+            @if ($index > 0) {
+              <app-regular-player
+                class="h-[121px] w-full bg-black"
+                [player]="rightPlayers![$index]"
+                [isRight]="true"
+              ></app-regular-player>
+            }
+          }
+        </div>
+        <!-- Sponsor area -->
+        <div
+          class="relative flex h-[485px] w-[295px] items-center justify-center overflow-hidden rounded-br-lg bg-[#111111]"
+        >
+          @if (dataModel.sponsorInfo().enabled) {
+            @for (sponsor of dataModel.sponsorInfo().sponsors; track $index) {
+              <img
+                class="sponsor-img absolute w-62 object-contain"
+                [class.active]="currentSponsorIndex() === $index"
+                [src]="sponsor"
+              />
+            }
+          }
+        </div>
       </div>
     </div>
   </div>
-</div>
 }

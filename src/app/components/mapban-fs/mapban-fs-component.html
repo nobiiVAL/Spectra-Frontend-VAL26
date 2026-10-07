@@ -1,116 +1,128 @@
 <div class="relative h-screen w-screen">
-	@if(data.format === 'bo1') {
-		<div class="flex flex-col gap-8 items-center justify-center h-full w-full">
-			<span class="w-170 font-replica text-6xl opacity-70 text-white text-center">The fullscreen mapban is only available for BO3 and BO5 formats.</span>
-			<img src="https://cdn.7tv.app/emote/01F6MKTFTG0009C9ZSNZTFV2ZF/3x.gif">
-		</div>
-	} @else if(isMapbanComplete) {
-		<div class="h-screen w-screen flex flex-col items-center">
-			<div class="flex h-50 w-465 rounded-t-lg bg-black/90 backdrop-blur-lg backdrop-brightness-30 mt-21.75">
-				<div class="flex flex-col justify-center font-replica uppercase text-white">
-					<div class="flex flex-row gap-10 ml-8">
-						<img class="w-25 object-contain" [src]="data.teams[0].url" />
-						<span class="text-[5rem]">{{ data.teams[0].tricode }} VS {{ data.teams[1].tricode }}</span>
-						<img class="w-25 object-contain" [src]="data.teams[1].url" />
-					</div>
-					<!-- Add watermark data to mapban socket and place here -->
-				</div>
-			</div>
-			<div>
-				<svg
-				xmlns="http://www.w3.org/2000/svg"
-				xmlns:xlink="http://www.w3.org/1999/xlink"
-				width="1860"
-				height="10"
-				viewBox="0 0 1860 10"
-				>
-				<defs>
-					<clipPath id="clip-path">
-					<rect
-						id="Rectangle_134"
-						data-name="Rectangle 134"
-						width="1860"
-						height="10"
-						transform="translate(40 238)"
-						fill="none"
-					/>
-					</clipPath>
-					<pattern
-					id="pattern"
-					preserveAspectRatio="none"
-					width="100%"
-					height="100%"
-					viewBox="0 0 6701 2244"
-					>
-					<image width="6701" height="2244" xlink:href="assets/breakdown/accentTexture.webp" />
-					</pattern>
-				</defs>
-				<g
-					id="Line_Accent_1"
-					data-name="Line Accent 1"
-					transform="translate(-40 -238)"
-					clip-path="url(#clip-path)"
-				>
-					<rect
-					id="Rectangle_133"
-					data-name="Rectangle 133"
-					width="1860"
-					height="10"
-					transform="translate(40 238)"
-					fill="var(--color-postmatch-primary)"
-					/>
-					<!-- Accent fill -->
-					<rect
-					id="_3511f4ab-b25b-44d2-939b-c9228ad71e7b"
-					data-name="3511f4ab-b25b-44d2-939b-c9228ad71e7b"
-					width="1860"
-					height="620"
-					transform="translate(35 217)"
-					fill="url(#pattern)"
-					style="mix-blend-mode: darken; isolation: isolate"
-					/>
-				</g>
-				</svg>
-			</div>
-			<div class="flex flex-col w-465 h-174 bg-[#1B171E] rounded-b-lg overflow-hidden">
-				<div class="flex flex-row w-465 h-14 gap-0.5">
-					<div class="bg-postmatch-primary w-74.5 flex items-center">
-						<span class="text-white text-3xl ml-6 font-replica uppercase">BANS</span>
-					</div>
-					<div class="flex flex-1 flex-row gap-0.5">
-						@for (map of pickedAndDeciderMaps; track map.name) {
-							<div class="bg-postmatch-primary flex-1 flex items-center justify-center">
-								<span class="text-white text-3xl font-replica uppercase text-center">{{ map.name }}</span>
-							</div>
-						}
-					</div>
-				</div>
-				<div class="flex flex-row h-160">
-					<div class="flex flex-col h-full w-75">
-						@for (i of bannedMapNames; track i; let idx = $index; let isLast = $last) {
-							<div class="flex-1 min-h-0 overflow-hidden" [class.rounded-bl-2xl]="isLast">
-								<app-mapban-ban-icon [index]="idx" [mapName]="bannedMapNames[idx]" [tricode]="bannedTeamTricodes[idx]"></app-mapban-ban-icon>
-							</div>
-						}
-					</div>
-					<div class="flex flex-row h-full flex-1 gap-0.5">
-						@for (map of pickedAndDeciderMaps; track map.name; let idx = $index; let isLast = $last) {
-							<div class="flex-1 min-h-0 min-w-0 overflow-hidden" [class.rounded-br-2xl]="isLast">
-								<app-mapban-map
-									[index]="idx"
-									[mapName]="map.name"
-									[teams]="[data.teams[0], data.teams[1]]"
-									[mapScore]="map.score"
-									[pickedBy]="map.pickedBy"
-									[sidePickedBy]="map.sidePickedBy"
-									[pickedAttack]="map.pickedAttack"
-									[format]="data.format"
-								></app-mapban-map>
-							</div>
-						}
-					</div>
-				</div>
-			</div>
-		</div>
-	}
+  @if(data.format === 'bo1') {
+  <div class="flex h-full w-full flex-col items-center justify-center gap-8">
+    <span class="font-replica w-170 text-center text-6xl text-white opacity-70"
+      >The fullscreen mapban is only available for BO3 and BO5 formats.</span
+    >
+    <img src="https://cdn.7tv.app/emote/01F6MKTFTG0009C9ZSNZTFV2ZF/3x.gif" />
+  </div>
+  } @else if(isMapbanComplete) {
+  <div class="flex h-screen w-screen flex-col items-center">
+    <div
+      class="mt-21.75 flex h-50 w-465 rounded-t-lg bg-black/90 backdrop-blur-lg backdrop-brightness-30"
+    >
+      <div class="font-replica flex flex-col justify-center text-white uppercase">
+        <div class="ml-8 flex flex-row gap-10">
+          <img class="w-25 object-contain" [src]="data.teams[0].url" />
+          <span class="text-[5rem]"
+            >{{ data.teams[0].tricode }} VS {{ data.teams[1].tricode }}</span
+          >
+          <img class="w-25 object-contain" [src]="data.teams[1].url" />
+        </div>
+        <!-- Add watermark data to mapban socket and place here -->
+      </div>
+    </div>
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="1860"
+        height="10"
+        viewBox="0 0 1860 10"
+      >
+        <defs>
+          <clipPath id="clip-path">
+            <rect
+              id="Rectangle_134"
+              data-name="Rectangle 134"
+              width="1860"
+              height="10"
+              transform="translate(40 238)"
+              fill="none"
+            />
+          </clipPath>
+          <pattern
+            id="pattern"
+            preserveAspectRatio="none"
+            width="100%"
+            height="100%"
+            viewBox="0 0 6701 2244"
+          >
+            <image width="6701" height="2244" xlink:href="assets/breakdown/accentTexture.webp" />
+          </pattern>
+        </defs>
+        <g
+          id="Line_Accent_1"
+          data-name="Line Accent 1"
+          transform="translate(-40 -238)"
+          clip-path="url(#clip-path)"
+        >
+          <rect
+            id="Rectangle_133"
+            data-name="Rectangle 133"
+            width="1860"
+            height="10"
+            transform="translate(40 238)"
+            fill="var(--color-postmatch-primary)"
+          />
+          <!-- Accent fill -->
+          <rect
+            id="_3511f4ab-b25b-44d2-939b-c9228ad71e7b"
+            data-name="3511f4ab-b25b-44d2-939b-c9228ad71e7b"
+            width="1860"
+            height="620"
+            transform="translate(35 217)"
+            fill="url(#pattern)"
+            style="mix-blend-mode: darken; isolation: isolate"
+          />
+        </g>
+      </svg>
+    </div>
+    <div class="flex h-174 w-465 flex-col overflow-hidden rounded-b-lg bg-[#1B171E]">
+      <div class="flex h-14 w-465 flex-row gap-0.5">
+        <div class="bg-postmatch-primary flex w-74.5 items-center">
+          <span class="font-replica ml-6 text-3xl text-white uppercase">BANS</span>
+        </div>
+        <div class="flex flex-1 flex-row gap-0.5">
+          @for (map of pickedAndDeciderMaps; track map.name) {
+          <div class="bg-postmatch-primary flex flex-1 items-center justify-center">
+            <span class="font-replica text-center text-3xl text-white uppercase"
+              >{{ map.name }}</span
+            >
+          </div>
+          }
+        </div>
+      </div>
+      <div class="flex h-160 flex-row">
+        <div class="flex h-full w-75 flex-col">
+          @for (i of bannedMapNames; track i; let idx = $index; let isLast = $last) {
+          <div class="min-h-0 flex-1 overflow-hidden" [class.rounded-bl-2xl]="isLast">
+            <app-mapban-ban-icon
+              [index]="idx"
+              [mapName]="bannedMapNames[idx]"
+              [tricode]="bannedTeamTricodes[idx]"
+            ></app-mapban-ban-icon>
+          </div>
+          }
+        </div>
+        <div class="flex h-full flex-1 flex-row gap-0.5">
+          @for (map of pickedAndDeciderMaps; track map.name; let idx = $index; let isLast = $last) {
+          <div class="min-h-0 min-w-0 flex-1 overflow-hidden" [class.rounded-br-2xl]="isLast">
+            <app-mapban-map
+              [index]="idx"
+              [mapName]="map.name"
+              [teams]="[data.teams[0], data.teams[1]]"
+              [mapScore]="map.score"
+              [pickedBy]="map.pickedBy"
+              [sidePickedBy]="map.sidePickedBy"
+              [pickedAttack]="map.pickedAttack"
+              [format]="data.format"
+            ></app-mapban-map>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  }
 </div>

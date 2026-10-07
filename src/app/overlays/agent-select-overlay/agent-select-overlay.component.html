@@ -1,70 +1,85 @@
 <div
-  class="bg-gradient-to-b from-[#0D131DF2] from-50% to-transparent absolute bottom-17.5 pos-x-center flex h-85 w-full flex-col items-center overflow-clip"
+  class="pos-x-center absolute bottom-17.5 flex h-85 w-full flex-col items-center overflow-clip bg-gradient-to-b from-[#0D131DF2] from-50% to-transparent"
   [class.active]="active"
 >
-  <div class="grid h-20.25 w-466.5 grid-cols-[1fr_auto_1fr] items-center font-replica">
+  <div class="font-replica grid h-20.25 w-466.5 grid-cols-[1fr_auto_1fr] items-center">
     <div class="flex min-w-0 items-center gap-6">
-      <img class="h-10" src="{{ dataModel.teams()[0].teamUrl }}"
-       [class.logoLeft]="logoLeft"
-      />
+      <img class="h-10" src="{{ dataModel.teams()[0].teamUrl }}" [class.logoLeft]="logoLeft" />
       @if (dataModel.seriesInfo().needed > 1) {
         <div class="flex flex-row gap-3">
           @for (i of numSequence(dataModel.seriesInfo().needed); track $index) {
-            <div class="size-2 rotate-45 border-2 border-white" [class.bg-white]="$index < dataModel.seriesInfo().wonLeft"></div>
+            <div
+              class="size-2 rotate-45 border-2 border-white"
+              [class.bg-white]="$index < dataModel.seriesInfo().wonLeft"
+            ></div>
           }
         </div>
       }
-      <div #teamNameContainer class="flex h-full w-158 min-w-0 flex-row items-center justify-end gap-2">
-        <span #teamNameText class="min-w-0 flex-1 break-words text-right text-[3.5rem] leading-none whitespace-normal text-white uppercase"
+      <div
+        #teamNameContainer
+        class="flex h-full w-158 min-w-0 flex-row items-center justify-end gap-2"
+      >
+        <span
+          #teamNameText
+          class="min-w-0 flex-1 text-right text-[3.5rem] leading-none break-words whitespace-normal text-white uppercase"
           [class.nameLeft]="nameLeft"
-        >{{ dataModel.teams()[0].teamName }}</span>
-        <span class="shrink-0 text-[2rem] uppercase text-[#D9CD8F]"
-          [class.sideLeft]="sideLeft"
-        >{{ dataModel.teams()[0].isAttacking ? 'ATK' : 'DEF' }}</span>
+          >{{ dataModel.teams()[0].teamName }}</span
+        >
+        <span class="shrink-0 text-[2rem] text-[#D9CD8F] uppercase" [class.sideLeft]="sideLeft">{{
+          dataModel.teams()[0].isAttacking ? "ATK" : "DEF"
+        }}</span>
       </div>
     </div>
     <div class="justify-self-center">
-      <img src="assets/agent-select/vs_component.svg"
-      [class.scaleVersus]="scaleVersus"
-       />
+      <img src="assets/agent-select/vs_component.svg" [class.scaleVersus]="scaleVersus" />
     </div>
     <div class="flex min-w-0 items-center justify-end gap-6">
       <div #teamNameContainer class="flex h-full w-158 min-w-0 flex-row items-center gap-2">
-        <span class="shrink-0 text-[2rem] uppercase text-[#D9CD8F]"
-          [class.sideRight]="sideRight"
-        >{{ dataModel.teams()[1].isAttacking ? 'ATK' : 'DEF' }}</span>
-        <span #teamNameText class="min-w-0 flex-1 break-words text-[3.5rem] leading-none whitespace-normal text-white uppercase"
+        <span class="shrink-0 text-[2rem] text-[#D9CD8F] uppercase" [class.sideRight]="sideRight">{{
+          dataModel.teams()[1].isAttacking ? "ATK" : "DEF"
+        }}</span>
+        <span
+          #teamNameText
+          class="min-w-0 flex-1 text-[3.5rem] leading-none break-words whitespace-normal text-white uppercase"
           [class.nameRight]="nameRight"
-        >{{ dataModel.teams()[1].teamName }}</span>
+          >{{ dataModel.teams()[1].teamName }}</span
+        >
       </div>
       @if (dataModel.seriesInfo().needed > 1) {
-        <div class="flex flex-row gap-3 -scale-x-100">
+        <div class="flex -scale-x-100 flex-row gap-3">
           @for (i of numSequence(dataModel.seriesInfo().needed); track $index) {
-            <div class="size-2 rotate-45 border-2 border-white" [class.bg-white]="$index < dataModel.seriesInfo().wonRight"></div>
+            <div
+              class="size-2 rotate-45 border-2 border-white"
+              [class.bg-white]="$index < dataModel.seriesInfo().wonRight"
+            ></div>
           }
         </div>
       }
-      <img class="h-10" src="{{ dataModel.teams()[1].teamUrl }}"
-       [class.logoRight]="logoRight"
-      />
+      <img class="h-10" src="{{ dataModel.teams()[1].teamUrl }}" [class.logoRight]="logoRight" />
     </div>
   </div>
   <div
-  class="absolute top-[5.1rem] left-1/2 h-1 w-466.5 will-change-transform"
-  [style.transform]="'translateX(-50%) scaleX(' + agentSelectBarScale() + ')'"
-  [style.transform-origin]="'center'"
-  [style.opacity]="agentSelectBarOpacity()"
-  [style.transition]="'opacity 220ms ease-out'"
-  [style.background]="
-    'linear-gradient(to right, '
-    + (dataModel.teams()[0].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)')
-    + ' 0%, #0D131D 50%, '
-    + (dataModel.teams()[1].isAttacking ? 'var(--color-attacker-primary)' : 'var(--color-defender-primary)')
-    + ' 100%)'
-  "
+    class="absolute top-[5.1rem] left-1/2 h-1 w-466.5 will-change-transform"
+    [style.transform]="'translateX(-50%) scaleX(' + agentSelectBarScale() + ')'"
+    [style.transform-origin]="'center'"
+    [style.opacity]="agentSelectBarOpacity()"
+    [style.transition]="'opacity 220ms ease-out'"
+    [style.background]="
+      'linear-gradient(to right, ' +
+      (dataModel.teams()[0].isAttacking
+        ? 'var(--color-attacker-primary)'
+        : 'var(--color-defender-primary)') +
+      ' 0%, #0D131D 50%, ' +
+      (dataModel.teams()[1].isAttacking
+        ? 'var(--color-attacker-primary)'
+        : 'var(--color-defender-primary)') +
+      ' 100%)'
+    "
   ></div>
-  <div class="grid h-61 w-466.5 grid-cols-[minmax(0,1fr)_8.75rem_minmax(0,1fr)] gap-2 rounded-xs border-1 border-gray-800 bg-gradient-to-b from-[#0D131DD9] to-black/95 to-90%">
-    <div class="flex h-full min-w-0 flex-row items-start justify-end gap-4 pr-0.5 pt-3">
+  <div
+    class="grid h-61 w-466.5 grid-cols-[minmax(0,1fr)_8.75rem_minmax(0,1fr)] gap-2 rounded-xs border-1 border-gray-800 bg-gradient-to-b from-[#0D131DD9] to-black/95 to-90%"
+  >
+    <div class="flex h-full min-w-0 flex-row items-start justify-end gap-4 pt-3 pr-0.5">
       @for (player of dataModel.teams()[0].players.slice().reverse(); track $index) {
         <app-agent-select-player-info
           class="h-88/100 min-w-0 flex-[0_0_9.5rem]"
@@ -78,15 +93,22 @@
         ></app-agent-select-player-info>
       }
     </div>
-    <div class="relative h-88/100 overflow-hidden rounded-[5px] items-center mt-3">
-      <img class="h-full w-full object-cover" src="assets/maps/tall/{{dataModel.match().map}}.webp" />
+    <div class="relative mt-3 h-88/100 items-center overflow-hidden rounded-[5px]">
+      <img
+        class="h-full w-full object-cover"
+        src="assets/maps/tall/{{ dataModel.match().map }}.webp"
+      />
       <div class="absolute inset-0 h-4/10 bg-gradient-to-b from-[#0D131DCC] to-transparent"></div>
-      <span class="absolute top-3 left-1/2 -translate-x-1/2 text-xl text-center text-white font-dinnext-medium uppercase">{{ dataModel.match().map }}</span>
+      <span
+        class="font-dinnext-medium absolute top-3 left-1/2 -translate-x-1/2 text-center text-xl text-white uppercase"
+        >{{ dataModel.match().map }}</span
+      >
       <div class="absolute inset-0 bg-gradient-to-t from-[#0D131D] to-transparent"></div>
-      <img class="absolute bottom-4 left-1/2 -translate-x-1/2 h-6" src="{{dataModel.match().tools.tournamentInfo.logoUrl}}" />
-      <div class="absolute inset-0 bg-[#BA4141]"
-      [class.mapCover]="mapCover"
-      ></div>
+      <img
+        class="absolute bottom-4 left-1/2 h-6 -translate-x-1/2"
+        src="{{ dataModel.match().tools.tournamentInfo.logoUrl }}"
+      />
+      <div class="absolute inset-0 bg-[#BA4141]" [class.mapCover]="mapCover"></div>
     </div>
     <div class="flex h-full min-w-0 flex-row items-start justify-start gap-4 pt-3">
       @for (player of dataModel.teams()[1].players; track $index) {

@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, effect, input, inject, signal, AfterViewInit } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  input,
+  inject,
+  signal,
+  AfterViewInit,
+} from "@angular/core";
 import { AgentRoleService } from "../../../services/agentRole.service";
 import { DataModelService } from "../../../services/dataModel.service";
 import { AgentNameService } from "../../../services/agentName.service";
@@ -9,7 +17,7 @@ import { AgentNameService } from "../../../services/agentName.service";
   templateUrl: "./player-info.component.html",
   styleUrl: "./player-info.component.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { '[style.--player-animation-delay-ms]': 'animationDelayMs()' },
+  host: { "[style.--player-animation-delay-ms]": "animationDelayMs()" },
 })
 export class AgentSelectPlayerInfoComponent implements AfterViewInit {
   readonly dataModel = inject(DataModelService);
@@ -29,7 +37,7 @@ export class AgentSelectPlayerInfoComponent implements AfterViewInit {
   prevLocked = false;
   animateSwitch = signal(false);
   showLockPulse = signal(false);
-  
+
   ngAfterViewInit(): void {
     requestAnimationFrame(() => {
       this.coverAnimation.set(true);
@@ -75,4 +83,3 @@ export class AgentSelectPlayerInfoComponent implements AfterViewInit {
     return AgentNameService.getAgentName(name);
   }
 }
-

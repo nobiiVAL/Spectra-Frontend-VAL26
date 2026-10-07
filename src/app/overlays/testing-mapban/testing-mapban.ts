@@ -1,5 +1,12 @@
-import { AfterViewInit, ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from "@angular/core";
-import {MapbanMapTestingComponent} from "./mapban-map/mapban-map.component";
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnDestroy,
+  OnInit,
+} from "@angular/core";
+import { MapbanMapTestingComponent } from "./mapban-map/mapban-map.component";
 import { ISessionTeam, SessionMap, Stage } from "../../services/Types";
 import { createTimeline, Timeline } from "animejs";
 
@@ -29,7 +36,7 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
   // ─── Overlay-bound state ─────────────────────────────────────────────────
   teams: ISessionTeam[] = [
     { name: "Team Alpha", tricode: "ALPH", url: "assets/misc/icon.webp" },
-    { name: "Team Beta",  tricode: "BETA", url: "assets/misc/icon.webp" },
+    { name: "Team Beta", tricode: "BETA", url: "assets/misc/icon.webp" },
   ];
 
   stage: Stage = "ban";
@@ -120,32 +127,62 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
   private buildSteps(): { delay: number; action: () => void }[] {
     return [
       // Phase 1: Bans
-      { delay: 2500, action: () => this.ban("Bind",  0) },
+      { delay: 2500, action: () => this.ban("Bind", 0) },
       { delay: 2500, action: () => this.ban("Pearl", 1) },
 
       // Pick 1
-      { delay: 2500, action: () => { this.stage = "pick"; this.pick("Ascent", 0, 1); } },
+      {
+        delay: 2500,
+        action: () => {
+          this.stage = "pick";
+          this.pick("Ascent", 0, 1);
+        },
+      },
       { delay: 2500, action: () => this.setSide(this.indexOf("Ascent"), true) },
 
       // Pick 2
-      { delay: 2500, action: () => { this.stage = "pick"; this.pick("Split", 1, 0); } },
+      {
+        delay: 2500,
+        action: () => {
+          this.stage = "pick";
+          this.pick("Split", 1, 0);
+        },
+      },
       { delay: 2500, action: () => this.setSide(this.indexOf("Split"), false) },
 
       // Phase 2: Bans
-      { delay: 2500, action: () => { this.stage = "ban"; this.actingTeam = 0; this.ban("Haven",  0); } },
+      {
+        delay: 2500,
+        action: () => {
+          this.stage = "ban";
+          this.actingTeam = 0;
+          this.ban("Haven", 0);
+        },
+      },
       { delay: 2500, action: () => this.ban("Icebox", 1) },
 
       // Decider
-      { delay: 2500, action: () => { this.stage = "side"; this.makeDecider(0); } },
+      {
+        delay: 2500,
+        action: () => {
+          this.stage = "side";
+          this.makeDecider(0);
+        },
+      },
       { delay: 2500, action: () => this.setSide(this.indexOf("Lotus"), true) },
 
       // Scores
-      { delay: 3000, action: () => this.setScore(this.indexOf("Ascent"), 13, 9)  },
-      { delay: 3000, action: () => this.setScore(this.indexOf("Split"),  8, 13) },
-      { delay: 3000, action: () => this.setScore(this.indexOf("Lotus"),  13, 11) },
+      { delay: 3000, action: () => this.setScore(this.indexOf("Ascent"), 13, 9) },
+      { delay: 3000, action: () => this.setScore(this.indexOf("Split"), 8, 13) },
+      { delay: 3000, action: () => this.setScore(this.indexOf("Lotus"), 13, 11) },
 
       // Hold then loop
-      { delay: 5000, action: () => {""} },
+      {
+        delay: 5000,
+        action: () => {
+          ("");
+        },
+      },
     ];
   }
 
@@ -162,11 +199,11 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
 
   private initState(): void {
     this.mapCardAnimationRun++;
-    this.poolMaps    = [...POOL_MAPS];
+    this.poolMaps = [...POOL_MAPS];
     this.decidedMaps = [];
-    this.stage       = "ban";
-    this.actingTeam  = 0;
-    this.stepIndex   = 0;
+    this.stage = "ban";
+    this.actingTeam = 0;
+    this.stepIndex = 0;
     this.resetSlotStates();
     this.refreshDisplay();
   }
@@ -189,10 +226,10 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
 
   private ban(mapName: string, by: 0 | 1): void {
     const map = new SessionMap(mapName);
-    map.bannedBy     = by;
+    map.bannedBy = by;
     this.decidedMaps = [...this.decidedMaps, map];
-    this.poolMaps    = this.poolMaps.filter((m) => m !== mapName);
-    this.actingTeam  = by === 0 ? 1 : 0;
+    this.poolMaps = this.poolMaps.filter((m) => m !== mapName);
+    this.actingTeam = by === 0 ? 1 : 0;
     this.refreshDisplay();
   }
 
@@ -202,11 +239,11 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
    */
   private pick(mapName: string, by: 0 | 1, sidePickedBy: 0 | 1): void {
     const map = new SessionMap(mapName);
-    map.pickedBy     = by;
+    map.pickedBy = by;
     map.sidePickedBy = sidePickedBy;
     this.decidedMaps = [...this.decidedMaps, map];
-    this.poolMaps    = this.poolMaps.filter((m) => m !== mapName);
-    this.actingTeam  = by === 0 ? 1 : 0;
+    this.poolMaps = this.poolMaps.filter((m) => m !== mapName);
+    this.actingTeam = by === 0 ? 1 : 0;
     this.refreshDisplay();
   }
 
@@ -215,7 +252,7 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
     const map = new SessionMap(this.poolMaps[0]);
     map.sidePickedBy = sidePickedBy;
     this.decidedMaps = [...this.decidedMaps, map];
-    this.poolMaps    = [];
+    this.poolMaps = [];
     this.refreshDisplay();
   }
 
@@ -239,11 +276,11 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
 
   private cloneWith(source: SessionMap, overrides: Partial<SessionMap>): SessionMap {
     const copy = new SessionMap(source.name);
-    copy.bannedBy     = source.bannedBy;
-    copy.pickedBy     = source.pickedBy;
+    copy.bannedBy = source.bannedBy;
+    copy.pickedBy = source.pickedBy;
     copy.sidePickedBy = source.sidePickedBy;
     copy.pickedAttack = source.pickedAttack;
-    copy.score        = [...source.score];
+    copy.score = [...source.score];
     Object.assign(copy, overrides);
     return copy;
   }
@@ -255,7 +292,7 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
       maps.push(new SessionMap(i === 0 ? "upcoming" : ""));
     }
     this.selectedMaps = maps;
-    this.logoIndex    = this.decidedMaps.length > 0 ? this.decidedMaps.length + 1 : 1;
+    this.logoIndex = this.decidedMaps.length > 0 ? this.decidedMaps.length + 1 : 1;
     this.updateSlotStates(this.selectedMaps);
   }
 
@@ -299,8 +336,8 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
       loopDelay: 0,
     });
 
-    const img1  = "#rotateImage1Index" + index;
-    const img2  = "#rotateImage2Index" + index;
+    const img1 = "#rotateImage1Index" + index;
+    const img2 = "#rotateImage2Index" + index;
     const delay = "+=1000";
 
     tl.set(img1, { x: 0 });
@@ -311,7 +348,10 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
     tl.add(img2, { x: 0 }, "<");
     tl.add(img1, { x: "+100%" }, "<<");
     tl.set(img1, { x: "-100%" }, "+=50");
-    tl.call(() => { this.rotateMapName(index, 0); state.currentMapNameIndex = 0; }, "<<");
+    tl.call(() => {
+      this.rotateMapName(index, 0);
+      state.currentMapNameIndex = 0;
+    }, "<<");
 
     // slide 2
     tl.set(img2, { zIndex: 1 }, delay);
@@ -319,7 +359,10 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
     tl.add(img2, { x: "+100%" }, "<<");
     tl.set(img2, { zIndex: -1 }, "+=50");
     tl.set(img2, { x: "-100%" }, "<");
-    tl.call(() => { this.rotateMapName(index, 1); state.currentMapNameIndex = 1; }, "<<");
+    tl.call(() => {
+      this.rotateMapName(index, 1);
+      state.currentMapNameIndex = 1;
+    }, "<<");
 
     return tl;
   }
@@ -348,7 +391,7 @@ export class TestingMapban implements OnInit, AfterViewInit, OnDestroy {
     const state = this.slotStates[index];
     if (!state) return;
     state.isRotating = false;
-    state.rotateMap  = 0;
+    state.rotateMap = 0;
     state.roateMapNames = ["", ""];
     if (state.rotateMapTimeline) {
       state.rotateMapTimeline.cancel();

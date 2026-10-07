@@ -1,106 +1,202 @@
 @if (renderedSide() !== false) {
-    <div class="listen-in-reveal absolute pos-x-center bottom-43"
-        [class.revealed]="allConnected() && !exiting()"
-        [class.listen-in-exit]="exiting()"
-        [style.visibility]="allConnected() ? 'visible' : 'hidden'"
-        (animationend)="onAnimationEnd($event)">
-        @if (allConnected()) {
-            <audio autoplay [volume]="0.25" type="audio/wav" src="assets/audio/listen-in-sonar.wav"></audio>
-        }
-        <div>
-            <svg width="1207" height="235" viewBox="0 0 1207 235" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g filter="url(#filter0_ii_1_8)">
-                <rect y="33" width="365" height="188" rx="5" [attr.fill]="teamColor()"/>
-                </g>
-                <g filter="url(#filter1_i_1_8)">
-                <path d="M222.606 0H85C83.8954 0 83 0.89543 83 2V13C83 14.1046 83.8954 15 85 15H221.565C222.669 15 223.565 15.8954 223.565 17V32C223.565 33.1046 224.46 34 225.565 34H1170C1171.1 34 1172 33.1046 1172 32V31.5C1172 28.1863 1169.31 25.5 1166 25.5H245.032C244.426 25.5 243.853 25.2255 243.474 24.7535L224.165 0.746537C223.785 0.274525 223.212 0 222.606 0Z" [attr.fill]="teamColor()"/>
-                </g>
-                <g filter="url(#filter2_ii_1_8)">
-                <path d="M219.255 7H17C14.7909 7 13 8.79086 13 11V231C13 233.209 14.7909 235 17 235H1203C1205.21 235 1207 233.209 1207 231V35.3249C1207 33.1138 1205.21 31.3222 1203 31.3249L243.21 32.4976C241.982 32.4991 240.821 31.9364 240.062 30.9713L222.399 8.52631C221.64 7.56257 220.482 7 219.255 7Z" fill="#151713"/>
-                <path d="M219.255 7H17C14.7909 7 13 8.79086 13 11V231C13 233.209 14.7909 235 17 235H1203C1205.21 235 1207 233.209 1207 231V35.3249C1207 33.1138 1205.21 31.3222 1203 31.3249L243.21 32.4976C241.982 32.4991 240.821 31.9364 240.062 30.9713L222.399 8.52631C221.64 7.56257 220.482 7 219.255 7Z" fill="url(#paint0_linear_1_8)"/>
-                </g>
-                <path d="M514 231H1207V231C1207 233.209 1205.21 235 1203 235H514V231Z" fill="url(#paint1_linear_1_8)"/>
-                <defs>
-                <filter id="filter0_ii_1_8" x="0" y="31" width="367" height="192" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dy="2"/>
-                <feGaussianBlur stdDeviation="2"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
-                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_8"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="2" dy="-2"/>
-                <feGaussianBlur stdDeviation="2"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/>
-                <feBlend mode="normal" in2="effect1_innerShadow_1_8" result="effect2_innerShadow_1_8"/>
-                </filter>
-                <filter id="filter1_i_1_8" x="83" y="0" width="1089" height="36" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dy="2"/>
-                <feGaussianBlur stdDeviation="1.15"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.3 0"/>
-                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_8"/>
-                </filter>
-                <filter id="filter2_ii_1_8" x="13" y="7" width="1196.2" height="230" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dy="2"/>
-                <feGaussianBlur stdDeviation="1.45"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
-                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_8"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="2.5"/>
-                <feGaussianBlur stdDeviation="1.1"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0"/>
-                <feBlend mode="normal" in2="effect1_innerShadow_1_8" result="effect2_innerShadow_1_8"/>
-                </filter>
-                <linearGradient id="paint0_linear_1_8" x1="649" y1="235" x2="649" y2="201" gradientUnits="userSpaceOnUse">
-                <stop/>
-                <stop offset="1" stop-opacity="0"/>
-                </linearGradient>
-                <linearGradient id="paint1_linear_1_8" x1="514" y1="233" x2="1207" y2="233" gradientUnits="userSpaceOnUse">
-                <stop/>
-                <stop offset="1" [attr.stop-color]="teamColor()"/>
-                </linearGradient>
-                </defs>
-                </svg>
-        </div>
-        <div class="absolute bottom-3 left-8 flex flex-row gap-1">
-            @for (player of listenInPlayers(); track player.fullName) {
-                <div class="flex">
-                    <div class="relative aspect-video w-57 h-43 overflow-hidden bg-black">
-                        <app-listen-in-iframe
-                            [src]="getStream(player.fullName)"
-                            (connectedChange)="onConnectedChange(player.fullName, $event)"
-                            (loudness)="onLoudness(player.fullName, $event)"
-                        />
-                        <div class="absolute bottom-0 h-14 w-full bg-linear-to-t from-white/15 to-transparent"></div>
-                        <div
-                            class="pointer-events-none absolute inset-0 border-[3px] border-white transition-opacity duration-150"
-                            [class.opacity-0]="!speaking().has(player.fullName)"
-                        ></div>
-                        <span class="absolute inset-x-0 bottom-2 px-8 overflow-clip text-center font-dincondensed-bold text-2xl whitespace-nowrap text-white uppercase">
-                            {{ getDisplayName(player.fullName, player.name) }}
-                        </span>
-                        <img class="absolute right-3 bottom-3 h-5 object-contain" [src]="teamUrl()"/>
-                    </div>
-                </div>
-            }
-        </div>
-        <div class="absolute bottom-48 left-7 w-51">
-            <div class="flex flex-row items-center gap-3">
-                <img class="h-6 shrink-0 object-contain" [src]="teamUrl()"/>
-                <span #comms class="min-w-0 flex-1 overflow-hidden whitespace-nowrap font-replica text-white">// {{ commsText() }}</span>
-            </div>
-        </div>
+  <div
+    class="listen-in-reveal pos-x-center absolute bottom-43"
+    [class.revealed]="allConnected() && !exiting()"
+    [class.listen-in-exit]="exiting()"
+    [style.visibility]="allConnected() ? 'visible' : 'hidden'"
+    (animationend)="onAnimationEnd($event)"
+  >
+    @if (allConnected()) {
+      <audio
+        autoplay
+        [volume]="0.25"
+        type="audio/wav"
+        src="assets/audio/listen-in-sonar.wav"
+      ></audio>
+    }
+    <div>
+      <svg
+        width="1207"
+        height="235"
+        viewBox="0 0 1207 235"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g filter="url(#filter0_ii_1_8)">
+          <rect y="33" width="365" height="188" rx="5" [attr.fill]="teamColor()" />
+        </g>
+        <g filter="url(#filter1_i_1_8)">
+          <path
+            d="M222.606 0H85C83.8954 0 83 0.89543 83 2V13C83 14.1046 83.8954 15 85 15H221.565C222.669 15 223.565 15.8954 223.565 17V32C223.565 33.1046 224.46 34 225.565 34H1170C1171.1 34 1172 33.1046 1172 32V31.5C1172 28.1863 1169.31 25.5 1166 25.5H245.032C244.426 25.5 243.853 25.2255 243.474 24.7535L224.165 0.746537C223.785 0.274525 223.212 0 222.606 0Z"
+            [attr.fill]="teamColor()"
+          />
+        </g>
+        <g filter="url(#filter2_ii_1_8)">
+          <path
+            d="M219.255 7H17C14.7909 7 13 8.79086 13 11V231C13 233.209 14.7909 235 17 235H1203C1205.21 235 1207 233.209 1207 231V35.3249C1207 33.1138 1205.21 31.3222 1203 31.3249L243.21 32.4976C241.982 32.4991 240.821 31.9364 240.062 30.9713L222.399 8.52631C221.64 7.56257 220.482 7 219.255 7Z"
+            fill="#151713"
+          />
+          <path
+            d="M219.255 7H17C14.7909 7 13 8.79086 13 11V231C13 233.209 14.7909 235 17 235H1203C1205.21 235 1207 233.209 1207 231V35.3249C1207 33.1138 1205.21 31.3222 1203 31.3249L243.21 32.4976C241.982 32.4991 240.821 31.9364 240.062 30.9713L222.399 8.52631C221.64 7.56257 220.482 7 219.255 7Z"
+            fill="url(#paint0_linear_1_8)"
+          />
+        </g>
+        <path
+          d="M514 231H1207V231C1207 233.209 1205.21 235 1203 235H514V231Z"
+          fill="url(#paint1_linear_1_8)"
+        />
+        <defs>
+          <filter
+            id="filter0_ii_1_8"
+            x="0"
+            y="31"
+            width="367"
+            height="192"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dy="2" />
+            <feGaussianBlur stdDeviation="2" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_8" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dx="2" dy="-2" />
+            <feGaussianBlur stdDeviation="2" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0" />
+            <feBlend mode="normal" in2="effect1_innerShadow_1_8" result="effect2_innerShadow_1_8" />
+          </filter>
+          <filter
+            id="filter1_i_1_8"
+            x="83"
+            y="0"
+            width="1089"
+            height="36"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dy="2" />
+            <feGaussianBlur stdDeviation="1.15" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.3 0" />
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_8" />
+          </filter>
+          <filter
+            id="filter2_ii_1_8"
+            x="13"
+            y="7"
+            width="1196.2"
+            height="230"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dy="2" />
+            <feGaussianBlur stdDeviation="1.45" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_8" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dx="2.5" />
+            <feGaussianBlur stdDeviation="1.1" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0" />
+            <feBlend mode="normal" in2="effect1_innerShadow_1_8" result="effect2_innerShadow_1_8" />
+          </filter>
+          <linearGradient
+            id="paint0_linear_1_8"
+            x1="649"
+            y1="235"
+            x2="649"
+            y2="201"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop />
+            <stop offset="1" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_1_8"
+            x1="514"
+            y1="233"
+            x2="1207"
+            y2="233"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop />
+            <stop offset="1" [attr.stop-color]="teamColor()" />
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
+    <div class="absolute bottom-3 left-8 flex flex-row gap-1">
+      @for (player of listenInPlayers(); track player.fullName) {
+        <div class="flex">
+          <div class="relative aspect-video h-43 w-57 overflow-hidden bg-black">
+            <app-listen-in-iframe
+              [src]="getStream(player.fullName)"
+              (connectedChange)="onConnectedChange(player.fullName, $event)"
+              (loudness)="onLoudness(player.fullName, $event)"
+            />
+            <div
+              class="absolute bottom-0 h-14 w-full bg-linear-to-t from-white/15 to-transparent"
+            ></div>
+            <div
+              class="pointer-events-none absolute inset-0 border-[3px] border-white transition-opacity duration-150"
+              [class.opacity-0]="!speaking().has(player.fullName)"
+            ></div>
+            <span
+              class="font-dincondensed-bold absolute inset-x-0 bottom-2 overflow-clip px-8 text-center text-2xl whitespace-nowrap text-white uppercase"
+            >
+              {{ getDisplayName(player.fullName, player.name) }}
+            </span>
+            <img class="absolute right-3 bottom-3 h-5 object-contain" [src]="teamUrl()" />
+          </div>
+        </div>
+      }
+    </div>
+    <div class="absolute bottom-48 left-7 w-51">
+      <div class="flex flex-row items-center gap-3">
+        <img class="h-6 shrink-0 object-contain" [src]="teamUrl()" />
+        <span
+          #comms
+          class="font-replica min-w-0 flex-1 overflow-hidden whitespace-nowrap text-white"
+          >// {{ commsText() }}</span
+        >
+      </div>
+    </div>
+  </div>
 }
