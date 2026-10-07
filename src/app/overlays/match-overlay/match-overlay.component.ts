@@ -14,7 +14,7 @@ import { PlayercamsComponent } from "../../components/combat/playercams/playerca
 import { EndroundBannerComponent } from "../../components/combat/endround-banner/endround-banner.component";
 import { TimeoutComponent } from "../../components/common/timeout/timeout.component";
 import { OneVersusOneComponent } from "../../components/combat/1v1/1v1.component";
-import { LiveToastComponent } from "../toast-overlay/toast-component";
+import { LiveToastComponent } from "../toast-overlay/toast.component";
 
 @Component({
   selector: "app-match-overlay",

@@ -19,8 +19,8 @@ import { ISponsorInfo, ITournamentInfo } from "../../services/Types";
 @Component({
   selector: "app-team-breakdown",
   imports: [MvpPlayer, RegularPlayer, TranslatePipe],
-  templateUrl: "./team-breakdown.html",
-  styleUrl: "./team-breakdown.css",
+  templateUrl: "./team-breakdown.component.html",
+  styleUrl: "./team-breakdown.component.css",
 })
 export class TeamBreakdown implements OnInit, OnDestroy {
   protected dataModel = inject(DataModelService);
