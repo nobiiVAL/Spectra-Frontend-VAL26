@@ -11,6 +11,7 @@ import {
   viewChild,
 } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
+import { ActivatedRoute } from "@angular/router";
 import { DataModelService } from "../../services/dataModel.service";
 import type { SafeResourceUrl } from "@angular/platform-browser";
 import { TranslateKeys } from "../../services/i18nHelper";
@@ -78,7 +79,15 @@ export class ListenInOverlayComponent implements OnDestroy {
 
   private connectedPlayers = signal<ReadonlySet<string>>(new Set());
 
-  private requestedSide = computed(() => this.dataModel.playercamsInfo().listenIn);
+  private route = inject(ActivatedRoute);
+  private sideOverride: IPlayercamsListenIn = ((team) =>
+    team === "left" || team === "right" ? team : false)(
+    this.route.snapshot.queryParamMap.get("team")?.toLowerCase(),
+  );
+
+  private requestedSide = computed(
+    () => this.sideOverride || this.dataModel.playercamsInfo().listenIn,
+  );
 
   // Lags behind requestedSide so the overlay stays mounted while the exit animation plays
   renderedSide = signal<IPlayercamsListenIn>(false);
