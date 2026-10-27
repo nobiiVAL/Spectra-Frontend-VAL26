@@ -24,5 +24,6 @@
   "scoreboard.deaths": "败阵",
   "scoreboard.assists": "助攻",
   "timeout.technical_pause": "技术暂停",
-  "timeout.tactical_timeout": "暂停"
+  "timeout.tactical_timeout": "暂停",
+  "listenin.livecomms": "实时通信"
 }

@@ -24,5 +24,6 @@
   "scoreboard.deaths": "Morts",
   "scoreboard.assists": "Aides",
   "timeout.technical_pause": "PAUSE TECHNIQUE",
-  "timeout.tactical_timeout": "PAUSE"
+  "timeout.tactical_timeout": "PAUSE",
+  "listenin.livecomms": "COMMUN. EN DIRECT"
 }

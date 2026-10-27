@@ -24,5 +24,6 @@
   "scoreboard.deaths": "Chết",
   "scoreboard.assists": "Hỗ trợ",
   "timeout.technical_pause": "TẠM DỪNG KỸ THUẬT",
-  "timeout.tactical_timeout": "TẠM DỪNG"
+  "timeout.tactical_timeout": "TẠM DỪNG",
+  "listenin.livecomms": "GIAO TIẾP TRỰC TIẾP"
 }

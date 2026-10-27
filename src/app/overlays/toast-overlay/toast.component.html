@@ -49,39 +49,57 @@
       </div>
       <div class="flex h-27.5 w-215 flex-row gap-6 rounded-[0.4375rem] bg-black/60">
         @if (toastInfo().selectedTeam !== "none") {
-        <div
-          class="flex w-27.5 shrink-0 items-center justify-center rounded-s-[0.4375rem] bg-[#1F1F1F]"
-        >
-          <img
-            [src]="toastInfo().selectedTeam === 'left' ? dataModel.teams()[0].teamUrl : dataModel.teams()[1].teamUrl"
-            class="vw-60 h-auto object-contain"
-          />
-        </div>
+          <div
+            class="flex w-27.5 shrink-0 items-center justify-center rounded-s-[0.4375rem] bg-[#1F1F1F]"
+          >
+            <img
+              [src]="
+                toastInfo().selectedTeam === 'left'
+                  ? dataModel.teams()[0].teamUrl
+                  : dataModel.teams()[1].teamUrl
+              "
+              class="vw-60 h-auto object-contain"
+            />
+          </div>
         } @else if (toastInfo().selectedTeam === "none" && toastInfo().eventLogoEnabled) {
-        <div
-          class="ml-auto flex w-27.5 shrink-0 items-center justify-center rounded-s-[0.4375rem] bg-[#161616]"
-        >
-          <img [src]="tournamentIconUrl()" class="vw-60 h-auto object-contain" />
-        </div>
+          <div
+            class="ml-auto flex w-27.5 shrink-0 items-center justify-center rounded-s-[0.4375rem] bg-[#161616]"
+          >
+            <img [src]="tournamentIconUrl()" class="vw-60 h-auto object-contain" />
+          </div>
         } @else {
           <div></div>
         }
         <div
           class="flex flex-col items-center justify-center gap-1 self-center overflow-hidden"
-          [class]="toastInfo().title==='' ? 'h-7/10' : 'h-8/10'"
+          [class]="toastInfo().title === '' ? 'h-7/10' : 'h-8/10'"
         >
-          @if(toastInfo().title !== '') {
-          <span
-            class="font-replica flex items-center justify-start text-3xl text-white"
-            [class]="toastInfo().selectedTeam === 'none' ? toastInfo().eventLogoEnabled ? 'w-175.5' : 'w-201.5' : toastInfo().eventLogoEnabled ? 'w-147.5' : 'w-174'"
-          >
-            {{ toastInfo().title }}
-          </span>
+          @if (toastInfo().title !== "") {
+            <span
+              class="font-replica flex items-center justify-start text-3xl text-white"
+              [class]="
+                toastInfo().selectedTeam === 'none'
+                  ? toastInfo().eventLogoEnabled
+                    ? 'w-175.5'
+                    : 'w-201.5'
+                  : toastInfo().eventLogoEnabled
+                    ? 'w-147.5'
+                    : 'w-174'
+              "
+            >
+              {{ toastInfo().title }}
+            </span>
           }
           <span
             class="font-replica flex items-center justify-start text-white"
             [class]="
-              (toastInfo().selectedTeam === 'none' ? toastInfo().eventLogoEnabled ? 'w-175.5' : 'w-201.5' : toastInfo().eventLogoEnabled ? 'w-147.5' : 'w-174') +
+              (toastInfo().selectedTeam === 'none'
+                ? toastInfo().eventLogoEnabled
+                  ? 'w-175.5'
+                  : 'w-201.5'
+                : toastInfo().eventLogoEnabled
+                  ? 'w-147.5'
+                  : 'w-174') +
               ' ' +
               (toastInfo().title === '' ? 'text-2xl' : 'text-xl')
             "
@@ -90,13 +108,13 @@
           </span>
         </div>
         @if (toastInfo().eventLogoEnabled && toastInfo().selectedTeam !== "none") {
-        <div
-          class="ml-auto flex w-27.5 shrink-0 items-center justify-center rounded-e-[0.4375rem] bg-[#161616]"
-        >
-          <img [src]="tournamentIconUrl()" class="vw-60 h-auto object-contain" />
-        </div>
+          <div
+            class="ml-auto flex w-27.5 shrink-0 items-center justify-center rounded-e-[0.4375rem] bg-[#161616]"
+          >
+            <img [src]="tournamentIconUrl()" class="vw-60 h-auto object-contain" />
+          </div>
         } @else {
-        <div></div>
+          <div></div>
         }
       </div>
     </div>

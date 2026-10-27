@@ -48,6 +48,13 @@ const routes: Routes = [
         component: TestingAgentSelectComponent,
       },
       {
+        path: "listen-in",
+        loadComponent: () =>
+          import("./overlays/testing-listen-in/testing-listen-in.component").then(
+            (m) => m.TestingListenInComponent,
+          ),
+      },
+      {
         path: "team-breakdown",
         loadComponent: () =>
           import("./overlays/testing-team-breakdown/testing-team-breakdown").then(
@@ -64,9 +71,7 @@ const routes: Routes = [
       {
         path: "mapban",
         loadComponent: () =>
-          import("./overlays/testing-mapban/testing-mapban").then(
-            (m) => m.TestingMapban,
-          ),
+          import("./overlays/testing-mapban/testing-mapban").then((m) => m.TestingMapban),
       },
     ],
   },
@@ -102,7 +107,9 @@ const routes: Routes = [
   {
     path: "mapban-fs",
     loadComponent: () =>
-      import("./overlays/mapban-fs-overlay/mapban-fs-overlay.component").then((m) => m.MapbanFsOverlayComponent),
+      import("./overlays/mapban-fs-overlay/mapban-fs-overlay.component").then(
+        (m) => m.MapbanFsOverlayComponent,
+      ),
   },
   {
     path: "playercams",
@@ -121,23 +128,30 @@ const routes: Routes = [
   {
     path: "team-breakdown",
     loadComponent: () =>
-      import("./overlays/team-breakdown/team-breakdown").then((m) => m.TeamBreakdown),
+      import("./overlays/team-breakdown/team-breakdown.component").then((m) => m.TeamBreakdown),
   },
   {
     path: "map-breakdown",
     loadComponent: () =>
-      import("./overlays/map-breakdown/map-breakdown").then((m) => m.MapBreakdown),
+      import("./overlays/map-breakdown/map-breakdown.component").then((m) => m.MapBreakdown),
   },
   {
     path: "toast",
     loadComponent: () =>
-      import("./overlays/toast-overlay/toast-component").then((m) => m.LiveToastComponent),
+      import("./overlays/toast-overlay/toast.component").then((m) => m.LiveToastComponent),
   },
   {
     path: "roundwinbox",
     loadComponent: () =>
       import("./components/combat/endround-banner/endround-banner.component").then(
         (m) => m.EndroundBannerComponent,
+      ),
+  },
+  {
+    path: "listen-in",
+    loadComponent: () =>
+      import("./overlays/listen-in-overlay/listen-in-overlay.component").then(
+        (m) => m.ListenInOverlayComponent,
       ),
   },
 ];

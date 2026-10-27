@@ -266,9 +266,7 @@
         } @else {
           <div
             [animate.enter]="
-              right()
-                ? 'animate-combat-stats-in-right'
-                : 'animate-combat-stats-in-left'
+              right() ? 'animate-combat-stats-in-right' : 'animate-combat-stats-in-left'
             "
           >
             <div
@@ -351,15 +349,18 @@
   }
   <!-- Creds/KDA container -->
   @if (!dataModel.hideAuxiliaryText()) {
-    <div class="absolute h-3 flex flex-row items-center justify-center gap-1 top-17" [class]="right() ? '-left-1' : '-right-1'">
+    <div
+      class="absolute top-17 flex h-3 flex-row items-center justify-center gap-1"
+      [class]="right() ? '-left-1' : '-right-1'"
+    >
       @if (!dataModel.match().showAliveKDA && player.isAlive) {
         <img class="w-full object-contain" src="assets/misc/ValorantCredits.webp" />
-        <span class="text-center font-foundry-bold text-lg text-white">
+        <span class="font-foundry-bold text-center text-lg text-white">
           {{ formatNumber(player.money) }}
         </span>
-      } @else if (dataModel.match().showAliveKDA && player.isAlive){
+      } @else if (dataModel.match().showAliveKDA && player.isAlive) {
         <span
-          class="text-center font-foundry-bold text-white"
+          class="font-foundry-bold text-center text-white"
           [class.text-md]="(player.kills + '/' + player.deaths + '/' + player.assists).length > 6"
           [class.text-lg]="(player.kills + '/' + player.deaths + '/' + player.assists).length <= 6"
         >

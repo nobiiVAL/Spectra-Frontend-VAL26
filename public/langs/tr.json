@@ -24,5 +24,6 @@
   "scoreboard.deaths": "Ölme",
   "scoreboard.assists": "Asist",
   "timeout.technical_pause": "TEKNİK DURAKLATMA",
-  "timeout.tactical_timeout": "DURAKLATMA"
+  "timeout.tactical_timeout": "DURAKLATMA",
+  "listenin.livecomms": "CANLI İLETİŞİM"
 }

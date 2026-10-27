@@ -42,5 +42,6 @@
   "breakdown.retake_success_rate": "Retake Success",
   "breakdown.trade_success_rate_5s": "Traded Within 5s",
   "breakdown.win": "WIN",
-  "breakdown.loss": "LOSS"
+  "breakdown.loss": "LOSS",
+  "listenin.livecomms": "LIVE COMMS"
 }

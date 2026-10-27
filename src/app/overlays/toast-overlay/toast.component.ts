@@ -5,8 +5,8 @@ import { IToastInfo } from "../../services/Types";
 @Component({
   selector: "app-live-toast",
   imports: [],
-  templateUrl: "./toast-component.html",
-  styleUrl: "./toast-component.css",
+  templateUrl: "./toast.component.html",
+  styleUrl: "./toast.component.css",
 })
 export class LiveToastComponent {
   dataModel = inject(DataModelService);

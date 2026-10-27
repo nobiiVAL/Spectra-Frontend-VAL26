@@ -19,8 +19,8 @@ import { ISponsorInfo, ITournamentInfo } from "../../services/Types";
 @Component({
   selector: "app-map-breakdown",
   imports: [TranslatePipe],
-  templateUrl: "./map-breakdown.html",
-  styleUrl: "./map-breakdown.css",
+  templateUrl: "./map-breakdown.component.html",
+  styleUrl: "./map-breakdown.component.css",
 })
 export class MapBreakdown implements OnInit, OnDestroy {
   protected dataModel = inject(DataModelService);
