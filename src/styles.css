@@ -3,6 +3,52 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat:wght@400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap");
+@font-face {
+  font-family: "Noto Sans JP";
+  font-weight: 400;
+  src: url("/assets/fonts/NotoSansMono/NotoSansJP-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans JP";
+  font-weight: 500;
+  src: url("/assets/fonts/NotoSansMono/NotoSansJP-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans JP";
+  font-weight: 700;
+  src: url("/assets/fonts/NotoSansMono/NotoSansJP-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 400;
+  src: url("/assets/fonts/NotoSansMono/NotoSansKR-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  src: url("/assets/fonts/NotoSansMono/NotoSansKR-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 700;
+  src: url("/assets/fonts/NotoSansMono/NotoSansKR-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans SC";
+  font-weight: 400;
+  src: url("/assets/fonts/NotoSansMono/NotoSansSC-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans SC";
+  font-weight: 500;
+  src: url("/assets/fonts/NotoSansMono/NotoSansSC-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Sans SC";
+  font-weight: 700;
+  src: url("/assets/fonts/NotoSansMono/NotoSansSC-Bold.ttf") format("truetype");
+}
 @font-face {
   font-family: "DIN Next W1G Medium";
   src: url("/assets/fonts/DINNextW1G/dinnextw1g_medium.otf") format("opentype");
@@ -71,47 +117,61 @@
   --color-postmatch-secondary: #ffd075;
 }
 
+/* Latin glyphs keep the brand fonts; CJK glyphs fall through to the Noto Sans variant for the active language */
+:root {
+  --font-cjk: "Noto Sans SC";
+}
+:root:lang(ja) {
+  --font-cjk: "Noto Sans JP";
+}
+:root:lang(ko) {
+  --font-cjk: "Noto Sans KR";
+}
+:root:lang(zh-Hant) {
+  --font-cjk: "Noto Sans TC", "Noto Sans SC";
+}
+
 @utility font-montserrat {
-  font-family: Montserrat, Helvetica;
+  font-family: Montserrat, var(--font-cjk), Helvetica;
 }
 @utility font-unbounded {
-  font-family: Unbounded, Helvetica;
+  font-family: Unbounded, var(--font-cjk), Helvetica;
 }
 @utility font-dinnext-light {
-  font-family: "DIN Next W1G Light", Helvetica;
+  font-family: "DIN Next W1G Light", var(--font-cjk), Helvetica;
 }
 @utility font-dinnext-regular {
-  font-family: "DIN Next W1G Regular", Helvetica;
+  font-family: "DIN Next W1G Regular", var(--font-cjk), Helvetica;
 }
 @utility font-dinnext-medium {
-  font-family: "DIN Next W1G Medium", Helvetica;
+  font-family: "DIN Next W1G Medium", var(--font-cjk), Helvetica;
 }
 @utility font-dinnext-bold {
-  font-family: "DIN Next W1G Bold", Helvetica;
+  font-family: "DIN Next W1G Bold", var(--font-cjk), Helvetica;
 }
 @utility font-dincondensed-light {
-  font-family: "DIN Condensed", Helvetica;
+  font-family: "DIN Condensed", var(--font-cjk), Helvetica;
   font-weight: 300;
 }
 @utility font-dincondensed-regular {
-  font-family: "DIN Condensed", Helvetica;
+  font-family: "DIN Condensed", var(--font-cjk), Helvetica;
   font-weight: 400;
 }
 @utility font-dincondensed-bold {
-  font-family: "DIN Condensed", Helvetica;
+  font-family: "DIN Condensed", var(--font-cjk), Helvetica;
   font-weight: 600;
 }
 @utility font-foundry-bold {
-  font-family: "Foundry Gridnik W03 Bold", Helvetica;
+  font-family: "Foundry Gridnik W03 Bold", var(--font-cjk), Helvetica;
 }
 @utility font-foundry-extrabold {
-  font-family: "Foundry Gridnik W03 Extra Bold", Helvetica;
+  font-family: "Foundry Gridnik W03 Extra Bold", var(--font-cjk), Helvetica;
 }
 @utility font-replica {
-  font-family: Replica, Helvetica;
+  font-family: Replica, var(--font-cjk), Helvetica;
 }
 @utility font-tungsten {
-  font-family: Tungsten, Helvetica;
+  font-family: Tungsten, var(--font-cjk), Helvetica;
 }
 
 /* Custom classes to size a component according to its relative size within a 1080p screen */

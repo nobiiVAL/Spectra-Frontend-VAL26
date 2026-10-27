@@ -31,7 +31,7 @@
     color: white;
   }
   32.4% {
-    color: #BA4141;
+    color: #ba4141;
   }
   100% {
     transform: translateX(0);
@@ -44,7 +44,7 @@
     color: white;
   }
   32.4% {
-    color: #BA4141;
+    color: #ba4141;
   }
   100% {
     transform: translateX(0);
@@ -106,11 +106,13 @@
 }
 
 .translatePlayerCardLeft {
-  animation: translatePlayerCardLeft 0.66s calc(0.4s + (var(--player-animation-delay-ms, 0) * 1ms)) cubic-bezier(0.01, 0.67, 0.554, 0.997) both;
+  animation: translatePlayerCardLeft 0.66s calc(0.4s + (var(--player-animation-delay-ms, 0) * 1ms))
+    cubic-bezier(0.01, 0.67, 0.554, 0.997) both;
 }
 
 .translatePlayerCardRight {
-  animation: translatePlayerCardRight 0.66s calc(0.4s + (var(--player-animation-delay-ms, 0) * 1ms)) cubic-bezier(0.01, 0.67, 0.554, 0.997) both;
+  animation: translatePlayerCardRight 0.66s calc(0.4s + (var(--player-animation-delay-ms, 0) * 1ms))
+    cubic-bezier(0.01, 0.67, 0.554, 0.997) both;
 }
 
 .mapCover {
@@ -118,31 +120,31 @@
 }
 
 .scaleVersus {
-  animation: scaleVersus 0.4s 0.4s cubic-bezier(0,0.473,0.316,0.997) both;
+  animation: scaleVersus 0.4s 0.4s cubic-bezier(0, 0.473, 0.316, 0.997) both;
 }
 
 .sideLeft {
-  animation: moveLeftSide 0.5s 0.4s cubic-bezier(0,0.473,0.316,0.997) both;
+  animation: moveLeftSide 0.5s 0.4s cubic-bezier(0, 0.473, 0.316, 0.997) both;
 }
 
 .sideRight {
-  animation: moveRightSide 0.5s 0.4s cubic-bezier(0,0.473,0.316,0.997) both;
+  animation: moveRightSide 0.5s 0.4s cubic-bezier(0, 0.473, 0.316, 0.997) both;
 }
 
 .nameLeft {
-  animation: moveLeftTeamName 0.57s 0.4s cubic-bezier(0,0.473,0.316,0.997) both;
+  animation: moveLeftTeamName 0.57s 0.4s cubic-bezier(0, 0.473, 0.316, 0.997) both;
 }
 
 .nameRight {
-  animation: moveRightTeamName 0.57s 0.4s cubic-bezier(0,0.473,0.316,0.997) both;
+  animation: moveRightTeamName 0.57s 0.4s cubic-bezier(0, 0.473, 0.316, 0.997) both;
 }
 
 .logoLeft {
-  animation: moveLeftTeamLogo 0.57s 0.4s cubic-bezier(0,0.473,0.316,0.997) both;
+  animation: moveLeftTeamLogo 0.57s 0.4s cubic-bezier(0, 0.473, 0.316, 0.997) both;
 }
 
 .logoRight {
-  animation: moveRightTeamLogo 0.57s 0.4s cubic-bezier(0,0.473,0.316,0.997) both;
+  animation: moveRightTeamLogo 0.57s 0.4s cubic-bezier(0, 0.473, 0.316, 0.997) both;
 }
 
 .active {

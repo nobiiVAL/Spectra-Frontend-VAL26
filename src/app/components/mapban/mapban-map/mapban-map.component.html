@@ -1,22 +1,34 @@
- 
 <div class="relative h-full w-full overflow-clip">
   <div class="absolute inset-0" [class.animate-map-translate]="playMapTranslate">
-     @if (map.name && map.name !== "upcoming") {
-       <img [src]="'assets/maps/wide/' + map.name + '.webp'" alt="" class="h-full w-full object-cover animate-map-in" />
-       <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-foundry-extrabold text-3xl uppercase">{{ map.name }}</span>
+    @if (map.name && map.name !== "upcoming") {
+      <img
+        [src]="'assets/maps/wide/' + map.name + '.webp'"
+        alt=""
+        class="animate-map-in h-full w-full object-cover"
+      />
+      <span
+        class="font-foundry-extrabold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-3xl text-white uppercase"
+        >{{ map.name }}</span
+      >
     } @else {
-       <div></div>
+      <div></div>
     }
     @if (isBanned) {
-      <app-mapban-ban-icon 
-        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full"
-        [index]="index">
+      <app-mapban-ban-icon
+        class="absolute top-1/2 left-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transform"
+        [index]="index"
+      >
       </app-mapban-ban-icon>
     }
   </div>
   @if ((isPicked || isDecider) && sideIsPicked) {
-    <div class="absolute bottom-0 left-0 w-full bg-[#AE2A2A] flex items-center justify-center h-16" [class.animate-side-picked]="playSidePicked">
-      <span class="text-white font-replica text-lg uppercase text-center leading-6">{{ sidePickerTricode }} PICKS<br>{{ map.pickedAttack ? 'ATTACK' : 'DEFENSE' }}</span>
+    <div
+      class="absolute bottom-0 left-0 flex h-16 w-full items-center justify-center bg-[#AE2A2A]"
+      [class.animate-side-picked]="playSidePicked"
+    >
+      <span class="font-replica text-center text-lg leading-6 text-white uppercase"
+        >{{ sidePickerTricode }} PICKS<br />{{ map.pickedAttack ? "ATTACK" : "DEFENSE" }}</span
+      >
     </div>
   }
 </div>

@@ -1,35 +1,35 @@
 @keyframes mapTranslate {
-    0% {
-        transform: translateX(-15px) scale(1.22);
-    }
-    54.29% {
-        transform: translateX(0) scale(1.22);
-    }
-    100% {
-        transform: translateX(0) scale(1);
-    }
+  0% {
+    transform: translateX(-15px) scale(1.22);
+  }
+  54.29% {
+    transform: translateX(0) scale(1.22);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
 }
 
 @keyframes sidePicked {
-    0% {
-        clip-path: inset(0 100% 0 0);
-    }
-    100% {
-        clip-path: inset(0 0 0 0);
-    }
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 .animate-map-translate {
-    animation-name: mapTranslate;
-    animation-duration: 0.58s;
-    animation-delay: 0.2s;
-    animation-timing-function: cubic-bezier(.42, 0, .58, 1);
-    animation-fill-mode: both;
+  animation-name: mapTranslate;
+  animation-duration: 0.58s;
+  animation-delay: 0.2s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  animation-fill-mode: both;
 }
 
 .animate-side-picked {
-    animation-name: sidePicked;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.42, 0, .46, .99);
-    animation-fill-mode: both;
+  animation-name: sidePicked;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.46, 0.99);
+  animation-fill-mode: both;
 }

@@ -6,13 +6,22 @@
       @if (teamIndex === 0) {
         @for (player of team.players.slice().reverse(); track $index) {
           <div class="flex flex-col gap-1 opacity-60 hover:opacity-100">
-            <button [class.hidden]="player.locked" (click)="lockAgent(teamIndex, team.players.length - 1 - $index)">
+            <button
+              [class.hidden]="player.locked"
+              (click)="lockAgent(teamIndex, team.players.length - 1 - $index)"
+            >
               Lock
             </button>
-            <button [class.hidden]="!player.locked" (click)="unlockAgent(teamIndex, team.players.length - 1 - $index)">
+            <button
+              [class.hidden]="!player.locked"
+              (click)="unlockAgent(teamIndex, team.players.length - 1 - $index)"
+            >
               Unlock
             </button>
-            <button [class.hidden]="player.locked" (click)="changeAgent(teamIndex, team.players.length - 1 - $index)">
+            <button
+              [class.hidden]="player.locked"
+              (click)="changeAgent(teamIndex, team.players.length - 1 - $index)"
+            >
               Change
             </button>
           </div>
